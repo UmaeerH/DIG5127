@@ -21,7 +21,9 @@
 
 <body>
 
-    <h1>My first PHP page</h1>
+    <h1>OpenBook</h1>
+    <h2>A Smart Way to Book Out Your Rooms</h2>
+
 
     <?php
     echo "Hello World!";
