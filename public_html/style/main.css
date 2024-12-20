@@ -9,7 +9,7 @@
 /* Heading Styles */
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: #1e0046;
+    color: #1e0046; 
 }
 
 /* Paragraph Styles */
@@ -17,4 +17,16 @@ p {
     font-size: 1rem;
     color: #0c0020;
     margin-bottom: 10px;
+}
+
+/* Header Style */
+.header h1 {  
+    background-color: #1e0046;
+    color: aliceblue; 
+    font-style: italic;
+    padding: 20px;
+}
+
+.lightText {
+    color: aliceblue;
 }
