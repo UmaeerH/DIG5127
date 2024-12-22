@@ -29,7 +29,7 @@
 }
 
 .body-content h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* Dynamically resize font */
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem); 
     color: #1e0046;
     font-weight: bold;
 }
@@ -46,10 +46,12 @@
     background-color: #5c0984;
 }
 
+
+
 /* Circle Image Styles */
 .circle {
     position: absolute;
-    width: clamp(200px, 20vw, 300px); /* Responsive sizing */
+    width: clamp(200px, 20vw, 300px); 
     height: clamp(200px, 20vw, 300px);
     opacity: 0.8;
     
@@ -57,14 +59,16 @@
 }
 
 .left-circle {
-    top: 120%; /* Position dynamically */
+    top: 120%; 
     left: -2%;
 }
 
 .right-circle {
-    bottom: -620%; /* Position dynamically */
+    bottom: -620%; 
     right: -2%;
 }
+
+
 
 /* Footer */
 .footer {
@@ -99,7 +103,7 @@
     margin-top: 10px;
 }
 
-/* Responsive Adjustments */
+/* Makes the page more dynamic */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
