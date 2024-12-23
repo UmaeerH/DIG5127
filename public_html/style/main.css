@@ -10,12 +10,14 @@
     background-color: #4593A5;
     padding: 1rem 2rem;
     position: relative;
+    z-index: 10;
 }
 
 .header nav a {
     font-size: 1rem;
     color: aliceblue;
     text-decoration: none;
+    z-index: 10;
 }
 
 .header nav a:hover {
@@ -26,12 +28,14 @@
 .body-content {
     background: linear-gradient(to right, #e0e7ff, #f8f9fa);
     padding: 2rem;
+    z-index: 5;
 }
 
 .body-content h2 {
     font-size: clamp(1.5rem, 2.5vw, 2.5rem); 
     color: #1e0046;
     font-weight: bold;
+    z-index: 5;
 }
 
 .body-content .btn-primary {
@@ -40,10 +44,16 @@
     border-radius: 25px;
     padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 2rem);
     font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    z-index: 5;
 }
 
 .body-content .btn-primary:hover {
     background-color: #5c0984;
+    z-index: 5;
+}
+
+.container {
+    z-index: 5;
 }
 
 
@@ -51,21 +61,23 @@
 /* Circle Image Styles */
 .circle {
     position: absolute;
-    width: clamp(200px, 20vw, 300px); 
-    height: clamp(200px, 20vw, 300px);
+    width: clamp(200px, 20vw, 350px); 
+    height: clamp(200px, 20vw, 350px);
     opacity: 0.8;
-    
+    z-index: -2;
     pointer-events: none;
 }
 
 .left-circle {
     top: 120%; 
     left: -2%;
+    z-index: -5;
 }
 
 .right-circle {
     bottom: -620%; 
     right: -2%;
+    z-index: -5;
 }
 
 
@@ -75,6 +87,7 @@
     background-color: #4593A5;
     padding: 1rem;
     text-align: center;
+    z-index: 10;
 }
 
 .footer ul {
@@ -100,11 +113,11 @@
 .footer p {
     font-size: 0.8rem;
     color: aliceblue;
-    margin-top: 10px;
+    margin-bottom: 5rem;
 }
 
 /* Makes the page more dynamic */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .header {
         flex-direction: column;
         text-align: center;

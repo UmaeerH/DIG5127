@@ -23,8 +23,8 @@
 
     <!-- Header -->
     <header class="header text-center py-4 ">
-     <img src="public_html/images/purple-circle-shape-png-5258.png" alt="Left Decorative Circle" class="circle left-circle">
-     <img src="public_html/images/purple-circle-shape-png-5258.png" alt="Right Decorative Circle" class="circle right-circle">
+     <img src="public_html/images/purple-circle-shape.png" alt="Left Decorative Circle" class="circle left-circle">
+     <img src="public_html/images/purple-circle-shape.png" alt="Right Decorative Circle" class="circle right-circle">
 
         <div class="container">
             <div class="d-flex justify-content-end">
@@ -33,10 +33,6 @@
             </div>
         </div>
     </header>
-
-    <?php
-    echo "";
-    ?>
 
     <!-- Body -->
     <main class="body-content text-center py-5 flex-grow-1">

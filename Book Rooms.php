@@ -48,7 +48,7 @@
                     "name" => "Millenium Point Building",
                     "rooms" => "40+",
                     "description" => "Located in the heart of the city centre, this lively and bright room would be a great choice for those looking for a private and quiet place to meet with their team.",
-                    "image" => "public_html/images/mp-exterior-gallery-133408819121723782.jpeg"
+                    "image" => "public_html/images/mp-exterior.jpeg"
                 ],
                 [
                     "name" => "Parkside Building",
