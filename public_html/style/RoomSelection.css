@@ -1,0 +1,145 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.bg-teal {
+    background-color: #4593A5;
+    color: white;
+}
+
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+.navbar-brand, .nav-link {
+    font-weight: bold;
+}
+
+/* Key Indicator Styling */
+.availability-key p {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.key-selected, .key-available, .key-booked {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.key-selected {
+    background-color: #28a745;
+    border: 2px solid #155d27;
+}
+
+.key-available {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+}
+
+.key-booked {
+    background-color: #dc3545;
+    border: 2px solid #a71d2a;
+}
+
+/* Calendar Container */
+.calendar-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Time Slots */
+.time-container {
+    padding: 20px;
+}
+
+.time-slot {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+.time-slot:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.time-slot.booked {
+    background-color: #dc3545;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.time-slot.selected {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.time-slot:not(.booked):not(.selected) {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Room Cards */
+.room-container {
+    padding: 20px;
+}
+
+.room-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.room-card.booked {
+    border: 1px solid #dc3545;
+    background-color: #f8d7da;
+}
+
+.room-card strong {
+    color: #333333;
+}
+
+/* Footer */
+footer {
+    background-color: #4593A5;
+}
+
+footer div {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer li a:hover {
+    text-decoration: underline;
+}

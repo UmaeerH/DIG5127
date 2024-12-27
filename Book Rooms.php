@@ -78,7 +78,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>{$building['name']}</h5>
                             <p class='card-text'>{$building['description']}</p>
-                            <button class='btn btn-primary'>Book Now</button>
+                            <a href='RoomSelection.php?building=" . urlencode($building['name']) . "' class='btn btn-primary'>Book Now</a>
                         </div>
                     </div>
                 </div>
