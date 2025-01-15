@@ -53,7 +53,7 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#" class="text-light">Home</a></li>
                 <li class="list-inline-item"><a href="Book Rooms.php" class="text-light">Book Room</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Manage Bookings</a></li>
+                <li class="list-inline-item"><a href="ManageBookings.php" class="text-light">Manage Bookings</a></li>
                 <li class="list-inline-item"><a href="#" class="text-light">Help</a></li>
                 <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
                 <li class="list-inline-item"><a href="#" class="text-light">Careers</a></li>
