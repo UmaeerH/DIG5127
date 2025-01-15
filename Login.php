@@ -1,10 +1,10 @@
-<php>
+<php?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Login Page</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="public_html/style.css">
 </head>
 <body>
-    <h1>Can you see?!!!!!!!</h1>
     <!-- Navbar (Header) -->
     <header>
         <nav class="navbar navbar-expand-lg" style="background-color: #008080;">
@@ -54,33 +53,22 @@
     <!-- Main Content -->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
-            <h2 class="text-center mb-4">Sign Up</h2>
-            <br>
-            <h3 class="text-center mb-4">Create An Account</h3>
+            <h2 class="text-center mb-4">Log In</h2>
             <form action="" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                 </div>
-                <form action="" method="post">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="username" id="username" class="form-control" placeholder="Enter your username" required>
-                </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Confirm Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
-                </div>
-                <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+                <button type="submit" class="btn btn-dark btn-block">Sign In</button>
                 <div class="text-center mt-3">
-        
+                    <a href="#" class="text-muted">Forgot password?</a>
                 </div>
                 <div class="text-center mt-2">
-                    <p>Already have an account? <a href="loginpage.php">Login here</a></p>
+                    <p> No Account? <a href="SignUp.php">Sign up now</a></p>
                 </div>
             </form>
         </div>
@@ -104,8 +92,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
 </php>

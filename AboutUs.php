@@ -41,11 +41,16 @@
 <!--Body-->
 
 <h1> About Us</h1>
-Welcome to the Birmingham City University Room Booking Platform! Our mission is to simplify room bookings and scheduling across all BCU buildings, ensuring a seamless and efficient experience for students, staff, and visitors.
+    <p>Welcome to the Birmingham City University Room Booking Platform! Our mission is to simplify room bookings and 
+        scheduling across all BCU buildings, ensuring a seamless and efficient experience for students, staff, and visitors.</p>
 
-Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, and comprehensive building details, we make finding the perfect space effortless.
-
-We’re here to support your academic and professional journey by providing a reliable and organized system that saves you time and keeps you focused on what matters most. Explore the platform today and discover how easy it is to book your next space at BCU!
+    <p>Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
+        interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, 
+        and comprehensive building details, we make finding the perfect space effortless.</p>
+        
+    <p>We're here to support your academic and professional journey by providing a reliable and organized system 
+        that saves you time and keeps you focused on what matters most. Explore the platform today and discover 
+        how easy it is to book your next space at BCU!</p>
 
  <!-- Footer -->
  <footer class="text-white text-center py-3 mt-5">
