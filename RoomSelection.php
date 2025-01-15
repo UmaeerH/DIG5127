@@ -69,7 +69,7 @@ $rooms = [
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="index.php">Home</a>
                 <a class="nav-item nav-link active" href="Book Rooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="#">Manage Bookings</a>
+                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
                 <a class="nav-item nav-link" href="#">About Us</a>
                 <a class="nav-item nav-link" href="Report page.php">Report</a>
                 <button class="btn btn-primary ml-3">Log Out</button>
