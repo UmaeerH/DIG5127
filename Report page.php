@@ -35,10 +35,48 @@
         </div>
     </nav>
 
+    <div class="container mt-5">
+        <h2 class="text-center">Report an Issue</h2>
+        <p><strong>Problem with the room you selected?:</strong> Room C218, Classroom, Curzon Level 2</p>
+        <p>If you are facing an issue with this room, you can choose an option below to describe the problem.</p>
+        <p>We will fix the issue as soon as possible and re-arrangements can be made depending on the type of problem.</p>
 
-
-
-
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">IT Fault</h5>
+                        <p class="card-text">This includes faulty projectors, sockets, or devices in the room.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Electricity</h5>
+                        <p class="card-text">This includes lighting or any power outages.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Heating or Air Conditioning</h5>
+                        <p class="card-text">This includes faulty heaters or air conditioning.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Other</h5>
+                        <p class="card-text">If that issue has not been listed above, select this option.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
      <!-- Footer -->
