@@ -35,3 +35,25 @@
             </div>
         </div>
     </nav>
+<h1> Manage Booking </h1>
+<h1> Upcoming: </h1>
+       <!-- Footer -->
+       <footer class="footer text-center py-3 text-light">
+        <div class="container">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-light">Home</a></li>
+                <li class="list-inline-item"><a href="Book Rooms.php" class="text-light">Book Room</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Manage Bookings</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Help</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Careers</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
+            </ul>
+            <p class="small mt-2">
+                OpenBook™ LLC is registered to operate in England & Wales under the Companies House.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
