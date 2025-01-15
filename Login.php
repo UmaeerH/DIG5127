@@ -11,12 +11,12 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style.css">
+    <link rel="stylesheet" href="public_html/style/main.css">
 </head>
 <body>
     <!-- Navbar (Header) -->
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #008080;">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand text-light" href="index.php">
                     <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 60px;">
