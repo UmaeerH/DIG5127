@@ -28,8 +28,8 @@
 
         <div class="container">
             <div class="d-flex justify-content-end">
-                <a href="#" class="btn btn-link text-light px-3">Sign Up</a>
-                <a href="#" class="btn btn-link text-light px-3">Log In</a>
+                <a href="SignUp.php" class="btn btn-link text-light px-3">Sign Up</a>
+                <a href="Login.php" class="btn btn-link text-light px-3">Log In</a>
             </div>
         </div>
     </header>
@@ -42,7 +42,7 @@
             </div>
             <h2 class="text-secondary mb-4">A Smart Way To Book Out Your Rooms</h2>
             <div class="mt-3">
-                <a href="#" class="btn btn-primary btn-lg mx-2">Sign Up or Login</a>
+                <a href="SignUp.php" class="btn btn-primary btn-lg mx-2">Sign Up</a>
             </div>
         </div>
     </main>

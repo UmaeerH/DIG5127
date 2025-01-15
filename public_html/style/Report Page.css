@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.bg-teal {
+    background-color: #4593A5;
+    color: white;
+}
+
+.navbar-brand img {
+    height: 80px; 
+    width: auto;
+}
+
+.nav-link.active {
+    
+    color: white ;
+}
+
+.navbar-brand, .nav-link {
+    font-weight: bold;
+}
+
+.container h2, .container h3 {
+    color: #005662;
+}
+
+
+footer {
+    background-color: #4593A5;
+}
+
+footer div {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer li a:hover {
+    text-decoration: underline;
+}
