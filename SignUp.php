@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="public_html/style/main.css">
 </head>
 <body>
-    <h1>Can you see?!!!!!!!</h1>
     <!-- Navbar (Header) -->
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -32,15 +31,12 @@
                             <a class="nav-link text-light" href="index.php">Home |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Book Rooms.php">Book Room |</a>
+                            <a class="nav-link text-light" href="BookRooms.php">Book Room |</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="ManageBooking.php">Manage Bookings |</a>
                         </li>
                         <li class="nav-item">
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Report</a>
                         </li>
                         <li class="nav-item">
                             <button class="btn btn-light ml-lg-3">Log Out</button>
