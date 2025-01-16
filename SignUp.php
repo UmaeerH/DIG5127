@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="index.php">Home |</a>
+                            <a class="nav-link text-light" href="index.php">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="BookRooms.php">Book Room |</a>
+                            <a class="nav-link text-light" href="BookRooms.php">Book Room </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="ManageBooking.php">Manage Bookings |</a>
+                            <a class="nav-link text-light" href="ManageBooking.php">Manage Bookings </a>
                         </li>
                         <li class="nav-item">
                         </li>

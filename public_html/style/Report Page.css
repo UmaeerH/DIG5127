@@ -3,18 +3,17 @@ body {
 }
 
 .bg-teal {
-    background-color: #4593A5;
-    color: white;
+    background-color: #4593A5 !important;
+    color: white !important;;
 }
 
 .navbar-brand img {
-    height: 80px; 
+    height: 80px;
     width: auto;
 }
 
 .nav-link.active {
-    
-    color: white ;
+    color: white;
 }
 
 .navbar-brand, .nav-link {
@@ -25,17 +24,16 @@ body {
     color: #005662;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* Card Styles */
 .card {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card-body {
@@ -43,19 +41,16 @@ body {
     padding: 20px;
 }
 
-
 h2 {
     color: #005662;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-
 .container p {
     font-size: 16px;
     line-height: 1.6;
 }
-
 
 .card-title {
     font-size: 18px;
@@ -68,16 +63,20 @@ h2 {
     color: #333;
 }
 
+.hidden-form {
+    display: none;
+}
 
 footer {
-    background-color: #4593A5;
+    background-color: #4593A5 !important;
+    color: white;
+    padding: 10px 0;
 }
 
 footer div {
     font-size: 14px;
-    color: #ccc;
 }
 
-.footer li a:hover {
+footer li a:hover {
     text-decoration: underline;
 }
