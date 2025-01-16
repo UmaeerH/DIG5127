@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #4593A5;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: white;
+    
+}
+
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.footer {
+    background-color: #4593A5;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.confirmation-container {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    flex-grow: 1;
+}
+
+.booking-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .room-image {
+    margin-top: 20px; /* Add spacing above the image */
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain the aspect ratio */
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+
+.confirmation-container h1 {
+    font-size: 2rem;
+    color: #4593A5;
+    margin-bottom: 20px;
+}
+
+.confirmation-card {
+    background-color: #f8f8ff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.room-info {
+    display: flex;
+    align-items: center;
+}
+
+.room-details {
+    text-align: left;
+}
+
+.room-name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5b5b5b;
+    margin-bottom: 10px;
+}
+
+.time-slot {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.status {
+    font-size: 1rem;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.confirmation-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #007bff;
+    border-color: #f4f4f400;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.manage-btn {
+    background-color: #6f42c1;
+}
+
+.manage-btn:hover {
+    background-color: #d0b8ff;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+
+.cancel-btn:hover {
+    background-color: #ff0019;
+}
+
+.return-btn {
+    background-color: #0088ff;
+}
+
+.return-btn:hover {
+    background-color: #e600ff;
+}

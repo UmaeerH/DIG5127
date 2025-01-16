@@ -29,7 +29,7 @@
                 <a class="nav-item nav-link active" href="Book Rooms.php">Book Room</a>
                 <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
                 <a class="nav-item nav-link" href="#">About Us</a>
-                <a class="nav-item nav-link" href="Report page.php">Report</a>
+                <a class="nav-item nav-link" href="#">Report</a>
                 <button class="btn btn-primary ml-3">Log Out</button>
             </div>
         </div>
@@ -43,47 +43,33 @@
         <div class="row">
             <!-- Building Cards -->
             <?php
-            $buildings = [
-                [
-                    "name" => "Millenium Point Building",
-                    "rooms" => "40+",
-                    "description" => "Located in the heart of the city centre, this lively and bright room would be a great choice for those looking for a private and quiet place to meet with their team.",
-                    "image" => "public_html/images/mp-exterior.jpeg"
-                ],
-                [
-                    "name" => "Parkside Building",
-                    "rooms" => "30+",
-                    "description" => "The twin building of Millenium Point contains a lot of equipment for those studying or interested in the arts such as Music and painting.",
-                    "image" => "public_html/images/parkside-gallery.jpeg"
-                ],
-                [
-                    "name" => "Curzon Building",
-                    "rooms" => "60+",
-                    "description" => "Located in the heart of the city centre, this lively and bright room would be a great choice for those looking for a private and quiet place to meet with their team.",
-                    "image" => "public_html/images/curson-slider.jpeg"
-                ],
-                [
-                    "name" => "STEAM House Building",
-                    "rooms" => "50+",
-                    "description" => "This cutting-edge building contains all the equipment a modern team would require to make the most out of their meetings.",
-                    "image" => "public_html/images/steamhouse-exterior.jpeg"
-                ]
-            ];
+                include("resources\database.php");
 
-            foreach ($buildings as $building) {
+                if ($conn === null) { 
+                    die("Database connection not established."); 
+                }
+
+
+                $buildingSql = "SELECT * FROM `buildings`"; 
+                $fetchedBuildings = mysqli_query($conn, $buildingSql);
+                
+
+
+            foreach ($fetchedBuildings as $building) {
                 echo "
                 <div class='col-md-3'>
                     <div class='card'>
-                        <img class='card-img-top' src='{$building['image']}' alt='{$building['name']}'>
+                        <img class='card-img-top' src='{$building['buildingImg']}' alt='{$building['buildingName']}'> 
                         <div class='card-body'>
-                            <h5 class='card-title'>{$building['name']}</h5>
-                            <p class='card-text'>{$building['description']}</p>
-                            <a href='RoomSelection.php?building=" . urlencode($building['name']) . "' class='btn btn-primary'>Book Now</a>
+                            <h5 class='card-title'>{$building['buildingName']}</h5>
+                            <p class='card-text'>{$building['buildingDesc']}</p>
+                            <a href='RoomSelection.php?building=" . urlencode($building['buildingName']) . "' class='btn btn-primary'>Book Now</a>
                         </div>
                     </div>
                 </div>
                 ";
             }
+                mysqli_close($conn);
             ?>
         </div>
     </div>
@@ -101,4 +87,3 @@
     </footer>
 </body>
 </html>
-
