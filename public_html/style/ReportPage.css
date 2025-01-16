@@ -3,21 +3,58 @@ body {
 }
 
 .bg-teal {
-    background-color: #4593A5 !important;
-    color: white !important;;
-}
-
-.navbar-brand img {
-    height: 80px;
-    width: auto;
-}
-
-.nav-link.active {
+    background-color: teal !important;
     color: white;
 }
 
-.navbar-brand, .nav-link {
+/* Navbar Styling */
+.navbar {
+    background-color: #4593A5;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar.bg-teal { 
+    background-color: teal !important;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
     font-weight: bold;
+}
+
+.navbar a:hover {
+    color: white;
+    
+}
+
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+/* Footer Styling */
+.footer {
+    background-color: #4593A5;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 .container h2, .container h3 {
@@ -67,11 +104,6 @@ h2 {
     display: none;
 }
 
-footer {
-    background-color: #4593A5 !important;
-    color: white;
-    padding: 10px 0;
-}
 
 footer div {
     font-size: 14px;
