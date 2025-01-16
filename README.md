@@ -16,7 +16,9 @@ Private Repo for our 2nd year project
     - js 📁
     - style 📁
 - resources
-    - app_config 
+    - app_config 📐
+    - database.php 🐘
 
 
 - index.php 🐘
+- README.md 📒
