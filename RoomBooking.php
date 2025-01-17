@@ -30,7 +30,7 @@ $timeSlots = $currentRoom['timeSlots'];
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style/RoomBooking.css">
+    <link rel="stylesheet" href="public_html/style/MainMerged.css">
 
     <!-- Javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
@@ -59,8 +59,8 @@ $timeSlots = $currentRoom['timeSlots'];
     <div class="container mt-4">
         <button class="btn btn-secondary mb-3" onclick="history.back()">Back</button>
 
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card2">
+            <div class="card2-header d-flex justify-content-between align-items-center">
                 <div>
                     <h5><?= $roomName ?></h5>
                     <p><?= $currentRoom['details'] ?></p>
@@ -68,7 +68,7 @@ $timeSlots = $currentRoom['timeSlots'];
                 <img src="<?= $currentRoom['image'] ?>" alt="Room Image" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
             </div>
 
-            <div class="card-body">
+            <div class="card2-body">
                 <h6>Times</h6>
                 <ul class="list-group">
                     <?php foreach ($timeSlots as $time => $status): ?>

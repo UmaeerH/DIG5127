@@ -29,36 +29,36 @@ body {
     padding: 20px;
 }
 
-.card {
+.card2 {
     border: none;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
+.card2-header {
     background-color: #ffffff;
     padding: 20px;
     border-bottom: 1px solid #e0e0e0;
 }
 
-.card-header h5 {
+.card2-header h5 {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
     color: #333333;
 }
 
-.card-header p {
+.card2-header p {
     margin: 5px 0 0;
     color: #555555;
     font-size: 14px;
 }
 
-.card-body {
+.card2-body {
     padding: 20px;
 }
 
-.card-body h6 {
+.card2-body h6 {
     font-size: 16px;
     font-weight: bold;
     color: #333333;

@@ -88,6 +88,7 @@
     padding: 1rem;
     text-align: center;
     z-index: 10;
+    bottom: 0;
 }
 
 .footer ul {
@@ -208,29 +209,6 @@ footer div {
 
 /* RoomSelection.php */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-}
-
-.bg-teal {
-    background-color: #4593A5;
-    color: white;
-}
-
-.navbar-brand img {
-    height: 60px;
-    width: auto;
-}
-
-.nav-link.active {
-    color: white;
-}
-
-.navbar-brand, .nav-link {
-    font-weight: bold;
-}
-
 /* Key Indicator Styling */
 .availability-key p {
     display: flex;
@@ -339,87 +317,40 @@ body {
     color: #333333;
 }
 
-/* Footer */
-footer {
-    background-color: #4593A5;
-}
-
-footer div {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.footer li a:hover {
-    text-decoration: underline;
-}
-
-
-
-
 
 /* RoomBooking */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
 
-.bg-teal {
-    background-color: #4593A5;
-    color: white;
-}
-
-.navbar-brand img {
-    height: 60px;
-    width: auto;
-}
-
-.nav-link.active {
-    color: white;
-}
-
-.navbar-brand, .nav-link {
-    font-weight: bold;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.card {
+.card2 {
     border: none;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
+.card2-header {
     background-color: #ffffff;
     padding: 20px;
     border-bottom: 1px solid #e0e0e0;
 }
 
-.card-header h5 {
+.card2-header h5 {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
     color: #333333;
 }
 
-.card-header p {
+.card2-header p {
     margin: 5px 0 0;
     color: #555555;
     font-size: 14px;
 }
 
-.card-body {
+.card2-body {
     padding: 20px;
 }
 
-.card-body h6 {
+.card2-body h6 {
     font-size: 16px;
     font-weight: bold;
     color: #333333;
@@ -487,99 +418,9 @@ body {
     border-color: #545b62;
 }
 
-footer {
-    background-color: #4593A5;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 30px;
-}
-
-footer ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-footer ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-footer ul li a:hover {
-    text-decoration: underline;
-}
-
-footer p {
-    margin: 10px 0 0;
-    font-size: 12px;
-}
 
 
-
-
-
-
-
-/* BookingConfirmation.php */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-/* Navbar Styling */
-.navbar {
-    background-color: #4593A5;
-    color: white;
-    padding: 10px 20px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    color: white;
-    
-}
-
-.navbar-brand img {
-    height: 40px;
-    width: auto;
-}
-
-.footer {
-    background-color: #4593A5;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-}
-
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
+/* BookingConfirmation */
 
 .confirmation-container {
     text-align: center;
@@ -627,7 +468,7 @@ body {
     margin-bottom: 10px;
 }
 
-.time-slot {
+.time-slot2 {
     font-size: 1rem;
     color: #6c757d;
     margin-bottom: 5px;
@@ -654,7 +495,7 @@ body {
 }
 
 .btn {
-    background-color: #007bff;
+    
     border-color: #f4f4f400;
     color: white;
     font-size: 14px;
@@ -686,125 +527,31 @@ body {
     background-color: #e600ff;
 }
 
-
-
-
-
-
-/* ReportPage.php */
-
 body {
     font-family: Arial, sans-serif;
-}
-
-.bg-teal {
-    background-color: teal !important;
-    color: white;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 /* Navbar Styling */
 .navbar {
     background-color: #4593A5;
     color: white;
-    padding: 10px 20px;
-}
-
-.navbar.bg-teal { 
-    background-color: teal !important;
-    color: white;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    color: white;
     
 }
 
-.navbar-brand img {
-    height: 40px;
-    width: auto;
-}
-/* Footer Styling */
-.footer {
-    background-color: #4593A5;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-}
-
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-.container h2, .container h3 {
-    color: #005662;
-}
-
-.card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-body {
-    background-color: #f8f9fa;
-    padding: 20px;
-}
-
-h2 {
-    color: #005662;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.container p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #005662;
-}
-
-.card-text {
-    font-size: 14px;
-    color: #333;
-}
-
-.hidden-form {
-    display: none;
-}
 
 
-footer div {
-    font-size: 14px;
-}
 
-footer li a:hover {
-    text-decoration: underline;
-}
+
+
+
+
+
+
+
 
