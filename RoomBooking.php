@@ -30,7 +30,7 @@ $timeSlots = $currentRoom['timeSlots'];
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style/MainMerged.css">
+    <link rel="stylesheet" href="public_html/style/main.css">
 
     <!-- Javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 

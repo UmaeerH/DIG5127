@@ -33,21 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="index.php">Home |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="Book Rooms.php">Book Room |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="ManageBooking.php">Manage Bookings |</a>
-                        </li>
-                        <li class="nav-item">
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Report</a>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn btn-light ml-lg-3">Log Out</button>
+                            <a class="nav-link text-light" href="index.php">Home</a>
                         </li>
                     </ul>
                 </div>

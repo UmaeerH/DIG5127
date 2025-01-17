@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style/ReportPage.css"> 
+    <link rel="stylesheet" href="public_html/style/MainMerged.css"> 
     
 
     <!-- Javascript -->
@@ -49,7 +49,7 @@
         <div class="row">
             <!-- Cards -->
             <div class="col-md-6">
-                <div class="card mb-3" data-issue="IT Fault">
+                <div class="card mb-3 expandCard" data-issue="IT Fault">
                     <div class="card-body">
                         <h5 class="card-title">IT Fault</h5>
                         <p class="card-text">This includes faulty projectors, sockets, or devices in the room.</p>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-3" data-issue="Electricity">
+                <div class="card mb-3 expandCard" data-issue="Electricity">
                     <div class="card-body">
                         <h5 class="card-title">Electricity</h5>
                         <p class="card-text">This includes lighting or any power outages.</p>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-3" data-issue="Heating or Air Conditioning">
+                <div class="card mb-3 expandCard" data-issue="Heating or Air Conditioning">
                     <div class="card-body">
                         <h5 class="card-title">Heating or Air Conditioning</h5>
                         <p class="card-text">This includes faulty heaters or air conditioning.</p>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-3" data-issue="Other">
+                <div class="card mb-3 expandCard" data-issue="Other">
                     <div class="card-body">
                         <h5 class="card-title">Other</h5>
                         <p class="card-text">If that issue has not been listed above, select this option.</p>
