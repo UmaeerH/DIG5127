@@ -45,33 +45,30 @@
         <div class="row">
             <!-- Building Cards -->
             <?php
-                include "resources/database.php";
+            include "resources/database.php";
 
-                if ($conn === null) { 
-                    die("Database connection not established."); 
-                }
+            if ($conn === null) { 
+                die("Database connection not established."); 
+            }
 
-
-                $buildingSql = "SELECT * FROM `buildings`"; 
-                $fetchedBuildings = mysqli_query($conn, $buildingSql);
-                
-
+            $buildingSql = "SELECT * FROM `buildings`";
+            $fetchedBuildings = mysqli_query($conn, $buildingSql);
 
             foreach ($fetchedBuildings as $building) {
                 echo "
                 <div class='col-md-3'>
                     <div class='card'>
-                        <img class='card-img-top' src='{$building['buildingImg']}' alt='{$building['buildingName']}'> 
+                        <img class='card-img-top' src='{$building['buildingImg']}' alt='{$building['buildingName']}'>
                         <div class='card-body'>
                             <h5 class='card-title'>{$building['buildingName']}</h5>
                             <p class='card-text'>{$building['buildingDesc']}</p>
-                            <a href='RoomSelection.php?building=" . urlencode($building['buildingName']) . "' class='btn btn-primary'>Book Now</a>
+                            <a href='RoomSelection.php?buildingID={$building['buildingID']}' class='btn btn-primary'>Book Now</a>
                         </div>
                     </div>
                 </div>
                 ";
             }
-                mysqli_close($conn);
+            mysqli_close($conn);
             ?>
         </div>
     </div>

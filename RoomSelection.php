@@ -10,32 +10,7 @@ $timeSlots = [
     "17:00" => "available",
 ];
 
-$rooms = [
-    [
-        "name" => "Room C084",
-        "details" => "Classroom, Curzon Level 0",
-        "status" => "available",
-        "image" => "public_html/images/curson-slider.jpeg"
-    ],
-    [
-        "name" => "Room C218",
-        "details" => "Classroom, Curzon Level 2",
-        "status" => "available",
-        "image" => "public_html/images/curson-slider.jpeg"
-    ],
-    [
-        "name" => "The Atrium",
-        "details" => "Hall, Curzon Level 2",
-        "status" => "available",
-        "image" => "public_html/images/curson-slider.jpeg"
-    ],
-    [
-        "name" => "Room C302",
-        "details" => "Classroom, Curzon Level 3",
-        "status" => "booked",
-        "image" => "public_html/images/curson-slider.jpeg"
-    ],
-];
+
 ?>
 
 
@@ -115,22 +90,43 @@ $rooms = [
             <!-- Rooms Section -->
             <div class="col-md-4 room-container">
                 <h5>Available Rooms</h5>
-                <?php
-                foreach ($rooms as $room) {
+            <?php
+            include "resources/database.php";
+
+            if ($conn === null) {
+                die("Database connection not established.");
+            }
+
+            // Retrieve buildingID from the query string
+            $buildingID = isset($_GET['buildingID']) ? intval($_GET['buildingID']) : 0;
+
+            if ($buildingID > 0) {
+                $roomSql = "SELECT * FROM rooms WHERE building = $buildingID";
+                $fetchedRooms = mysqli_query($conn, $roomSql);
+
+
+                foreach ($fetchedRooms as $room) {
                     $class = $room['status'] === 'booked' ? 'room-card booked' : 'room-card';
                     $disabled = $room['status'] === 'booked' ? 'disabled' : '';
                     echo "<div class='$class'>
                             <div>
-                                <strong>{$room['name']}</strong>
-                                <p>{$room['details']}</p>
+                                <strong>{$room['roomName']}</strong>
+                                <p>{$room['roomDesc']}</p>
+                                <p>Capacity: {$room['capacity']}</p>
                             </div>
-                            <img src='{$room['image']}' alt='Room Image'>
+                            <img src='{$room['roomImg']}' alt='{$room['roomName']}'>
                             <form method='GET' action='RoomBooking.php'>
-                                <button name='room_name' value='{$room['name']}' class='btn btn-primary mt-2' $disabled>Book</button>
+                                <button name='roomID' value='{$room['roomID']}' class='btn btn-primary mt-2' $disabled>Book</button>
                             </form>
                           </div>";
                 }
-                ?>
+            } else {
+                echo "<p class='text-danger'>Invalid building selected.</p>";
+            }
+
+            mysqli_close($conn);
+            ?>
+                
             </div>
         </div>
     </div>
