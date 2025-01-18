@@ -106,8 +106,8 @@ $timeSlots = [
 
 
                 foreach ($fetchedRooms as $room) {
-                    $class = $room['status'] === 'booked' ? 'room-card booked' : 'room-card';
-                    $disabled = $room['status'] === 'booked' ? 'disabled' : '';
+                    $class = 'room-card';
+                    $disabled = '';
                     echo "<div class='$class'>
                             <div>
                                 <strong>{$room['roomName']}</strong>
