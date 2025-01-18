@@ -45,7 +45,7 @@
         <div class="row">
             <!-- Building Cards -->
             <?php
-                include("resources\database.php");
+                include "resources/database.php";
 
                 if ($conn === null) { 
                     die("Database connection not established."); 
