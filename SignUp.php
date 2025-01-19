@@ -69,7 +69,7 @@
         
                 </div>
                 <div class="text-center mt-2">
-                    <p>Already have an account? <a href="loginpage.php">Login here</a></p>
+                    <p>Already have an account? <a href="Login.php">Login here</a></p>
                 </div>
             </form>
         </div>
