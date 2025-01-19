@@ -1,16 +1,9 @@
 <?php
-// Database connection settings
-$host = 'localhost'; 
-$dbname = 'openbook'; 
-$username = 'root'; 
-$password = ''; 
+// Include database connection
+include "resources/database.php";
 
-// Connect to the database
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+if ($conn === null) {
+    die("Database connection not established.");
 }
 
 // Get the selected room ID from the GET request
@@ -35,13 +28,23 @@ $timeSlots = [
 ];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LINKS
+         Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- External CSS -->
     <link rel="stylesheet" href="public_html/style/main.css">
+    <!-- Javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="public_html/js/main.js"></script>
+    
     <title>Room Booking</title>
 </head>
 <body>
