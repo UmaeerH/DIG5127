@@ -189,8 +189,8 @@ class UniversityUser extends User {
 class UniversityStaff extends UniversityUser {
     private $department;
 
-    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $department) {
-        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $universityName, $faculty, $department) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $universityName, $faculty);
         $this->department = $department;
     }
 
@@ -202,8 +202,8 @@ class UniversityStudent extends UniversityUser {
     private $studentID;
     private $course;
 
-    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $studentID, $course) {
-        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $universityName, $faculty, $studentID, $course) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $universityName, $faculty);
         $this->studentID = $studentID;
         $this->course = $course;
     }
