@@ -1,4 +1,3 @@
-<php>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +50,7 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                 </div>
-                <form action="" method="post">
+
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="username" id="username" class="form-control" placeholder="Enter your username" required>
@@ -62,19 +61,35 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Confirm Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    <input type="password" id="password" class="form-control" placeholder="Confirm your password" required>
                 </div>
+
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle w-100" 
+                            type="button" 
+                            id="dropdownMenuButton" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false">
+                        Please select an option
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">University Staff</a>
+                        <a class="dropdown-item" href="#">University Student</a>
+                        <a class="dropdown-item" href="#">Enterprise</a>
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
-                <div class="text-center mt-3">
-        
-                </div>
+                
                 <div class="text-center mt-2">
                     <p>Already have an account? <a href="Login.php">Login here</a></p>
                 </div>
             </form>
         </div>
     </div>
-
+  
     <!-- Footer -->
     <footer style="background-color: #008080;" class="text-light py-4">
         <div class="container text-center">
@@ -94,7 +109,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-
 </body>
 </html>
-</php>
