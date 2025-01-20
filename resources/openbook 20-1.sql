@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2025 at 02:09 AM
+-- Generation Time: Jan 20, 2025 at 01:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,6 +22,18 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `openbook` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `openbook`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminusers`
+--
+
+CREATE TABLE `adminusers` (
+  `user_id` int(11) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `adminType` enum('Department','University','Super') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -51,6 +63,23 @@ INSERT INTO `buildings` (`buildingID`, `buildingName`, `buildingDesc`, `building
 (2, 'Parkside Building', 'The twin building of Millenium Point contains a lot of equipment for those studying or interested in the arts such as Music and painting.', 'public_html/images/parkside-gallery.jpeg', NULL, 4, '012148578289', 'Parkside, Cardigan St', 'Birmingham', 'B4 7RJ'),
 (3, 'Curzon Building', 'This lively and cozy building would be a great choice for those looking for a private and quiet place to meet with their team. With access to a great library and many in-building services.', 'public_html/images/curson-slider.jpeg', NULL, 4, '012148578289', 'Millennium Point, Curzon St', 'Birmingham', 'B4 7AP'),
 (4, 'Steam House', 'This cutting-edge building contains all the equipment a modern team would require to make the most out of their meetings.', 'public_html/images/steamhouse-exterior.jpeg', NULL, 4, '021489421738', 'Belmont Row', 'Birmingham', 'B4 7RQ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `externalusers`
+--
+
+CREATE TABLE `externalusers` (
+  `user_id` int(11) NOT NULL,
+  `paymentType` enum('Bank','Card','Credit') DEFAULT NULL,
+  `externalType` enum('Private','Enterprise') NOT NULL,
+  `paymentToken` varchar(255) DEFAULT NULL,
+  `paymentIndentifier` varchar(8) DEFAULT NULL,
+  `paymentDate` datetime DEFAULT NULL,
+  `company` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -85,9 +114,88 @@ INSERT INTO `rooms` (`roomID`, `building`, `roomName`, `roomDesc`, `roomImg`, `f
 (9, 4, 'CST302', 'A modern, sleek and bright classroom, perfect for technology courses. Fit with many outlets and a strong connection to support BYOD classes', 'public_html/images/SH-classroom3.jpg', 3, 30, 'Classroom'),
 (10, 1, 'MP052', 'An Engineering lab, with specialist equipment for mechanical and electrical engineering', 'public_html/images/Lab1.webp', 0, 25, 'Lab');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `universitystaff`
+--
+
+CREATE TABLE `universitystaff` (
+  `user_id` int(11) NOT NULL,
+  `department` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `universitystudents`
+--
+
+CREATE TABLE `universitystudents` (
+  `user_id` int(11) NOT NULL,
+  `studentID` varchar(255) NOT NULL,
+  `course` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `universitystudents`
+--
+
+INSERT INTO `universitystudents` (`user_id`, `studentID`, `course`) VALUES
+(1, 'S214246', 'Computer Science');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `universityusers`
+--
+
+CREATE TABLE `universityusers` (
+  `user_id` int(11) NOT NULL,
+  `university_name` varchar(255) NOT NULL,
+  `faculty` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `universityusers`
+--
+
+INSERT INTO `universityusers` (`user_id`, `university_name`, `faculty`) VALUES
+(1, 'Birmingham City University', 'CEBE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userID` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `userType` enum('University','Admin','External') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `username`, `password`, `email`, `created_at`, `firstName`, `lastName`, `userType`) VALUES
+(1, 'user1', '$2y$10$wJ4nFFuC8AYmDvFuj4dCC.OiJHCUfFwvwj.wk9/TZCStm3PUJvNAq', 'test@mail.com', '2025-01-19 23:32:09', 'John', 'Doe', 'University');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `adminusers`
+--
+ALTER TABLE `adminusers`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `buildings`
@@ -96,10 +204,42 @@ ALTER TABLE `buildings`
   ADD PRIMARY KEY (`buildingID`);
 
 --
+-- Indexes for table `externalusers`
+--
+ALTER TABLE `externalusers`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`roomID`);
+
+--
+-- Indexes for table `universitystaff`
+--
+ALTER TABLE `universitystaff`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `universitystudents`
+--
+ALTER TABLE `universitystudents`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `universityusers`
+--
+ALTER TABLE `universityusers`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -116,6 +256,46 @@ ALTER TABLE `buildings`
 --
 ALTER TABLE `rooms`
   MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `adminusers`
+--
+ALTER TABLE `adminusers`
+  ADD CONSTRAINT `adminusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `externalusers`
+--
+ALTER TABLE `externalusers`
+  ADD CONSTRAINT `externalusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `universitystaff`
+--
+ALTER TABLE `universitystaff`
+  ADD CONSTRAINT `universitystaff_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `universityusers` (`user_id`);
+
+--
+-- Constraints for table `universitystudents`
+--
+ALTER TABLE `universitystudents`
+  ADD CONSTRAINT `universitystudents_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `universityusers` (`user_id`);
+
+--
+-- Constraints for table `universityusers`
+--
+ALTER TABLE `universityusers`
+  ADD CONSTRAINT `universityusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
