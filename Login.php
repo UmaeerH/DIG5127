@@ -4,7 +4,7 @@ session_start();
 // Database connection (embedded in this file)
 $servername = "localhost";
 $username = "root";
-$password = ""; // Use your actual database password
+$password = ""; 
 $database = "openbook";
 
 // Create connection
