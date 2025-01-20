@@ -47,8 +47,8 @@
             <h2 class="text-center mb-4">Log In</h2>
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <label for="user">Username</label>
+                    <input type="user" id="user" class="form-control" placeholder="Enter your username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
