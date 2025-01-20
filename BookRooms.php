@@ -1,3 +1,7 @@
+<?php
+session_start(); // Start the session
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,29 +20,31 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="public_html/js/main.js"></script>
 
-
     <title>Book Rooms</title>
 </head>
 
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-teal">
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-teal">
         <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px;">
-        </a>
+            <a class="navbar-brand" href="index.php">
+                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px;">
+            </a>
             <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="index.php">Home   </a>
+                <a class="nav-item nav-link" href="index.php">Home</a>
                 <a class="nav-item nav-link active" href="BookRooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings  </a>
-                <a class="nav-item nav-link" href="AboutUs.php">About Us  </a>
-                <a class="nav-item nav-link" href="ReportPage.php">Report  </a>
-                <button class="btn btn-primary ml-3">Log Out</button>
+                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
+                <a class="nav-item nav-link" href="AboutUs.php">About Us</a>
+                <a class="nav-item nav-link" href="ReportPage.php">Report</a>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
 
-     <!-- Main Content -->
-     <div class="container mt-5">
+    <!-- Main Content -->
+    <div class="container mt-5">
         <h2 class="text-center">View our selection</h2>
         <p class="text-center">With many buildings to select from across the UK, there are many rooms and workspaces to suit your needs and availability.</p>
         <h3 class="text-center mb-4">Select A Building</h3>
@@ -76,7 +82,7 @@
     <!-- Footer -->
     <footer class="text-white text-center py-3 mt-5">
         <div class="container">
-        <ul class="list-inline">
+            <ul class="list-inline">
                 <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
                 <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
                 <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>

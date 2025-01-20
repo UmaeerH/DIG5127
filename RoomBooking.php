@@ -1,4 +1,9 @@
 <?php
+session_start();
+?>
+
+
+<?php
 // Include database connection
 include "resources/database.php";
 
@@ -48,10 +53,11 @@ $timeSlots = [
     <title>Room Booking</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-teal">
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-teal">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo">
+                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px;">
             </a>
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="index.php">Home</a>
@@ -59,7 +65,9 @@ $timeSlots = [
                 <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
                 <a class="nav-item nav-link" href="AboutUs.php">About Us</a>
                 <a class="nav-item nav-link" href="ReportPage.php">Report</a>
-                <button class="btn btn-primary ml-3">Log Out</button>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
