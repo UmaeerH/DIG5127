@@ -126,4 +126,133 @@ class Room {
     public function setRoomType($roomType) { $this->roomType = $roomType; }
 }
 
+class User {
+    private $userID;
+    private $username;
+    private $password;
+    private $email;
+    private $firstName;
+    private $lastName;
+    private $userType;
+    private $createdAt;
+
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt) {
+        $this->userID = $userID;
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $email;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->userType = $userType;
+        $this->createdAt = $createdAt;
+    }
+
+    // Getters
+    public function getUserID() { return $this->userID; }
+    public function getUsername() { return $this->username; }
+    public function getPassword() { return $this->password; }
+    public function getEmail() { return $this->email; }
+    public function getFirstName() { return $this->firstName; }
+    public function getLastName() { return $this->lastName; }
+    public function getUserType() { return $this->userType; }
+    public function getCreatedAt() { return $this->createdAt; }
+    
+    // Setters
+    public function setUserID($userID) { $this->userID = $userID; }
+    public function setUsername($username) { $this->username = $username; }
+    public function setPassword($password) { $this->password = $password; }
+    public function setEmail($email) { $this->email = $email; }
+    public function setFirstName($firstName) { $this->firstName = $firstName; }
+    public function setLastName($lastName) { $this->lastName = $lastName; }
+    public function setUserType($userType) { $this->userType = $userType; }
+    public function setCreatedAt($createdAt) { $this->createdAt = $createdAt; }
+}
+
+class UniversityUser extends User {
+    private $universityName;
+    private $faculty;
+
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $universityName, $faculty) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+        $this->universityName = $universityName;
+        $this->faculty = $faculty;
+    }
+
+    public function getUniversityName() { return $this->universityName; }
+    public function setUniversityName($universityName) { $this->universityName = $universityName; }
+    public function getFaculty() { return $this->faculty; }
+    public function setFaculty($faculty) { $this->faculty = $faculty; }
+}
+
+
+
+class UniversityStaff extends UniversityUser {
+    private $department;
+
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $department) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+        $this->department = $department;
+    }
+
+    public function getDepartment() { return $this->department; }
+    public function setDepartment($department) { $this->department = $department; }
+}
+
+class UniversityStudent extends UniversityUser {
+    private $studentID;
+    private $course;
+
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $studentID, $course) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+        $this->studentID = $studentID;
+        $this->course = $course;
+    }
+
+    public function getStudentID() { return $this->studentID; }
+    public function setStudentID($studentID) { $this->studentID = $studentID; }
+    public function getCourse() { return $this->course; }
+    public function setCourse($course) { $this->course = $course; }
+}
+
+class ExternalUser extends User {
+    private $externalType;
+    private $paymentType;
+    private $paymentToken;
+    private $paymentIndentifier;
+    private $paymentDate;
+    private $company;
+    private $role;
+
+    public function __construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt, $externalType, $paymentType, $paymentToken, $paymentIndentifier, $paymentDate, $company, $role) {
+        parent::__construct($userID, $username, $password, $email, $firstName, $lastName, $userType, $createdAt);
+        $this->externalType = $externalType;
+        $this->paymentType = $paymentType;
+        $this->paymentToken = $paymentToken;
+        $this->paymentIndentifier = $paymentIndentifier;
+        $this->paymentDate = $paymentDate;
+        $this->company = $company;
+        $this->role = $role;
+    }
+
+    // Getters
+    public function getExternalType() { return $this->externalType; }
+    public function getPaymentType() { return $this->paymentType; }
+    public function getPaymentToken() { return $this->paymentToken; }
+    public function getPaymentIndentifier() { return $this->paymentIndentifier; }
+    public function getPaymentDate() { return $this->paymentDate; }
+    public function getCompany() { return $this->company; }
+    public function getRole() { return $this->role; }
+
+    // Setters
+    public function setExternalType($externalType) { $this->externalType = $externalType; }
+    public function setPaymentType($paymentType) { $this->paymentType = $paymentType; }
+    public function setPaymentToken($paymentToken) { $this->paymentToken = $paymentToken; }
+    public function setPaymentIndentifier($paymentIndentifier) { $this->paymentIndentifier = $paymentIndentifier; }
+    public function setPaymentDate($paymentDate) { $this->paymentDate = $paymentDate; }
+    public function setCompany($company) { $this->company = $company; }
+    public function setRole($role) { $this->role = $role; }
+}
+
+
+
 ?>
