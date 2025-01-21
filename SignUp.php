@@ -11,7 +11,10 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">OpenBook</a>
+            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
+                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px; max-width: 100%; margin-right: 10px;">
+                <span class="d-none">OpenBook</span> <!-- Optional for screen readers -->
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,7 +23,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    
                 </ul>
             </div>
         </div>
