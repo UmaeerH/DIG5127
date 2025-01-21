@@ -60,7 +60,7 @@ mysqli_close($conn);
         <nav class="navbar navbar-expand-lg ">
             <div class="container">
                 <a class="navbar-brand text-light" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 60px;">
+                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav" 
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

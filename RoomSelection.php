@@ -47,7 +47,7 @@ $timeSlots = [
      <nav class="navbar navbar-expand-lg navbar-light bg-teal">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px;">
+                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
             </a>
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="index.php">Home</a>

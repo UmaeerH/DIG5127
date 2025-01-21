@@ -4,15 +4,18 @@
     <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
+
+    <!-- LINKS
+         Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- External CSS -->
     <link rel="stylesheet" href="public_html/style/main.css">
     <!-- Javascript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="public_html/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="public_html/js/main.js" defer></script>
     
     <title>Sign Up Page</title>
 </head>
@@ -20,9 +23,9 @@
     <!-- Navbar (Header) -->
     <header>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container"> 
                 <a class="navbar-brand text-light" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 60px;">
+                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav" 
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,18 +69,19 @@
 
                 <!-- Dropdown Menu -->
                 <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle w-100" 
-                            type="button" 
-                            id="dropdownMenuButton" 
-                            data-toggle="dropdown" 
-                            aria-haspopup="true" 
-                            aria-expanded="false">
-                        Please select an option
+                    <button class="btn btn-dark dropdown-toggle w-100" 
+                        type="button" 
+                        id="dropdownMenuButton" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                        Click to Select an Option
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">University Staff</a>
-                        <a class="dropdown-item" href="#">University Student</a>
-                        <a class="dropdown-item" href="#">Enterprise</a>
+                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Staff</a>
+                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Student</a>
+                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Enterprise</a>
+                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Private</a>
                     </div>
                 </div>
 
@@ -103,11 +107,5 @@
             <p class="mb-0">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
         </div>
     </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </body>
 </html>

@@ -24,6 +24,37 @@
     text-decoration: underline;
 }
 
+/* Nav Links */
+.nav-link.active {
+    color: white ;
+}
+
+.navbar-brand, .nav-link {
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: #4593A5;
+    color: white;
+}
+
+#navbarNav {
+    background-color: #008080; /* Change to your desired background color */
+}
+
+#navbarNav .nav-link {
+    color: white !important; /* Change to your desired text color */
+}
+
+#navbarNav .nav-link:hover {
+    color: #d3d3d3 !important; /* Change to your desired hover text color */
+}
+
+.OBLogo {
+    height: 9rem !important; 
+    width: auto !important;
+}
+
 /* Main Body */
 
 .body { 
@@ -176,19 +207,6 @@
 
 /* BookRooms.php */
 
-.navbar-brand img {
-    height: 80px; 
-    width: auto;
-}
-
-.nav-link.active {
-    
-    color: white ;
-}
-
-.navbar-brand, .nav-link {
-    font-weight: bold;
-}
 
 .container h2, .container h3 {
     color: #005662;
@@ -545,12 +563,6 @@ footer div {
 }
 
 
-/* Navbar*/
-.navbar {
-    background-color: #4593A5;
-    color: white;
-    
-}
 
 /*Sign up*/
 
