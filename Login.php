@@ -1,18 +1,10 @@
 <?php
 session_start();
 
-// Database connection (embedded in this file)
-$servername = "localhost";
-$username = "root";
-$password = ""; 
-$database = "openbook";
+include "resources/database.php";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn === null) {
+    die("Database connection not established.");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

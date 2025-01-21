@@ -1,9 +1,9 @@
 <?php
 session_start();
-?>
 
 
-<?php
+
+
 // Include database connection
 include "resources/database.php";
 
