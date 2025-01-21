@@ -1,111 +1,155 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- LINKS
-         Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style/main.css">
-    <!-- Javascript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="public_html/js/main.js" defer></script>
-    
-    <title>Sign Up Page</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Navbar (Header) -->
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container"> 
-                <a class="navbar-brand text-light" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
-                </a>
-                <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="index.php">Home </a>
-                        </li>
-                    </ul>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">OpenBook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="user_type">User Type</label>
+                <select name="user_type" class="form-control" required>
+                    <option value="Student" selected>Student</option>
+                    <option value="Staff">Staff</option>
+                    <option value="Enterprise">Enterprise</option>
+                    <option value="Private">Private</option>
+                </select>
+            </div>
+            <div id="additional-fields">
+                <div class="form-group">
+                    <label for="university_name">University Name</label>
+                    <input type="text" name="university_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="faculty">Faculty</label>
+                    <input type="text" name="faculty" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="student_id">Student ID</label>
+                    <input type="text" name="student_id" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <input type="text" name="course" class="form-control" required>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-        <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
-            <h2 class="text-center mb-4">Sign Up</h2>
-            <br>
-            <h3 class="text-center mb-4">Create An Account</h3>
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="username" id="username" class="form-control" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Confirm Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Confirm your password" required>
-                </div>
-
-                <!-- Dropdown Menu -->
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle w-100" 
-                        type="button" 
-                        id="dropdownMenuButton" 
-                        data-toggle="dropdown" 
-                        aria-haspopup="true" 
-                        aria-expanded="false">
-                        Click to Select an Option
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Staff</a>
-                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Student</a>
-                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Enterprise</a>
-                        <a class="dropdown-item" href="#" onclick="updateButtonText(this)">Private</a>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
-                
-                <div class="text-center mt-2">
-                    <p>Already have an account? <a href="Login.php">Login here</a></p>
-                </div>
-            </form>
-        </div>
+            <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+            <div class="text-center mt-2">
+                <p>Already have an account? <a href="Login.php">Login here</a></p>
+            </div>
+        </form>
     </div>
-  
-    <!-- Footer -->
-    <footer style="background-color: #008080;" class="text-light py-4">
-        <div class="container text-center">
-            <ul class="list-inline mb-3">
-                <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-                <li class="list-inline-item"><span>|</span></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-                <li class="list-inline-item"><span>|</span></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="mb-0">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+</div>
+
+<footer class="text-light py-4" style="background-color: #008080;">
+    <div class="container text-center">
+        <p>&copy; 2025 OpenBook. All rights reserved.</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="contact.php" class="text-light">Contact Us</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="legal.php" class="text-light">Legal</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+    const userTypeField = document.querySelector('[name="user_type"]');
+    const additionalFields = document.getElementById('additional-fields');
+
+    userTypeField.addEventListener('change', () => {
+        const userType = userTypeField.value;
+        additionalFields.innerHTML = '';
+
+        if (userType === 'Student') {
+            additionalFields.innerHTML = `
+                <div class="form-group">
+                    <label for="university_name">University Name</label>
+                    <input type="text" name="university_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="faculty">Faculty</label>
+                    <input type="text" name="faculty" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="student_id">Student ID</label>
+                    <input type="text" name="student_id" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <input type="text" name="course" class="form-control" required>
+                </div>`;
+        } else if (userType === 'Staff') {
+            additionalFields.innerHTML = `
+                <div class="form-group">
+                    <label for="university_name">University Name</label>
+                    <input type="text" name="university_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="faculty">Faculty</label>
+                    <input type="text" name="faculty" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" name="department" class="form-control" required>
+                </div>`;
+        } else if (userType === 'Enterprise') {
+            additionalFields.innerHTML = `
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" name="company" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" name="role" class="form-control" required>
+                </div>`;
+        }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
