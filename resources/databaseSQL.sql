@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2025 at 01:31 AM
+-- Generation Time: Jan 21, 2025 at 10:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,6 +38,36 @@ CREATE TABLE `adminusers` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `appointments`
+--
+
+CREATE TABLE `appointments` (
+  `appointmentID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `roomID` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `timeSlot` time NOT NULL,
+  `paid` tinyint(1) NOT NULL,
+  `cancelled` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `board`
+--
+
+CREATE TABLE `board` (
+  `whiteboardID` int(11) NOT NULL,
+  `equipmentID` int(11) NOT NULL,
+  `smart` tinyint(1) NOT NULL,
+  `height` float NOT NULL,
+  `width` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `buildings`
 --
 
@@ -67,6 +97,94 @@ INSERT INTO `buildings` (`buildingID`, `buildingName`, `buildingDesc`, `building
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `computers`
+--
+
+CREATE TABLE `computers` (
+  `computerID` int(11) NOT NULL,
+  `equipmentID` int(11) NOT NULL,
+  `dGPU` tinyint(1) NOT NULL,
+  `VMcapable` tinyint(1) NOT NULL,
+  `operatingSystem` enum('MacOS','Windows','Linux') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `computers`
+--
+
+INSERT INTO `computers` (`computerID`, `equipmentID`, `dGPU`, `VMcapable`, `operatingSystem`) VALUES
+(1, 1, 1, 1, 'Windows'),
+(2, 2, 1, 1, 'Windows'),
+(3, 3, 1, 1, 'Windows'),
+(4, 4, 1, 1, 'Windows'),
+(5, 5, 1, 1, 'Windows'),
+(6, 6, 1, 1, 'Windows'),
+(7, 7, 0, 0, 'Windows');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `computer_software`
+--
+
+CREATE TABLE `computer_software` (
+  `computerID` int(11) NOT NULL,
+  `softwareID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `computer_software`
+--
+
+INSERT INTO `computer_software` (`computerID`, `softwareID`) VALUES
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 2),
+(2, 3),
+(2, 4),
+(3, 2),
+(3, 3),
+(3, 4),
+(4, 2),
+(4, 3),
+(4, 4),
+(5, 2),
+(5, 3),
+(5, 4),
+(6, 2),
+(6, 3),
+(6, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equipment`
+--
+
+CREATE TABLE `equipment` (
+  `equipmentID` int(11) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `designatedRoom` int(11) NOT NULL,
+  `status` enum('Operational','Maintenance','Non-Functional') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`equipmentID`, `model`, `designatedRoom`, `status`) VALUES
+(1, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(2, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(3, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(4, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(5, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(6, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
+(7, 'Lenovo ThinkStation P720', 3, 'Operational');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `externalusers`
 --
 
@@ -79,6 +197,18 @@ CREATE TABLE `externalusers` (
   `paymentDate` datetime DEFAULT NULL,
   `company` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `microphone`
+--
+
+CREATE TABLE `microphone` (
+  `microphoneID` int(11) NOT NULL,
+  `equipmentID` int(11) NOT NULL,
+  `fixed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -113,6 +243,31 @@ INSERT INTO `rooms` (`roomID`, `building`, `roomName`, `roomDesc`, `roomImg`, `f
 (8, 3, 'C125', 'A computer lab, perfect for technical classes which require specialist software.', 'public_html/images/Mp-classroom2.jpeg', 1, 30, 'Classroom'),
 (9, 4, 'CST302', 'A modern, sleek and bright classroom, perfect for technology courses. Fit with many outlets and a strong connection to support BYOD classes', 'public_html/images/SH-classroom3.jpg', 3, 30, 'Classroom'),
 (10, 1, 'MP052', 'An Engineering lab, with specialist equipment for mechanical and electrical engineering', 'public_html/images/Lab1.webp', 0, 25, 'Lab');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `software`
+--
+
+CREATE TABLE `software` (
+  `softwareID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `vendor` varchar(255) NOT NULL,
+  `licenceType` enum('Educational','Commercial','Perpetual') DEFAULT NULL,
+  `licenceExpire` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `software`
+--
+
+INSERT INTO `software` (`softwareID`, `name`, `vendor`, `licenceType`, `licenceExpire`) VALUES
+(1, 'Eclipse IDE', 'Eclipse Foundation', 'Perpetual', NULL),
+(2, 'VirtualBox', 'Oracle', 'Perpetual', NULL),
+(3, 'MATLAB', 'MathWorks', 'Educational', '2026-05-15'),
+(4, 'Fusion360', 'Autodesk', 'Educational', '2025-11-18'),
+(5, 'Unity Pro', 'Unity Technologies', 'Commercial', '2026-10-20');
 
 -- --------------------------------------------------------
 
@@ -198,10 +353,46 @@ ALTER TABLE `adminusers`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`appointmentID`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `roomID` (`roomID`);
+
+--
+-- Indexes for table `board`
+--
+ALTER TABLE `board`
+  ADD PRIMARY KEY (`whiteboardID`),
+  ADD KEY `equipmentID` (`equipmentID`);
+
+--
 -- Indexes for table `buildings`
 --
 ALTER TABLE `buildings`
   ADD PRIMARY KEY (`buildingID`);
+
+--
+-- Indexes for table `computers`
+--
+ALTER TABLE `computers`
+  ADD PRIMARY KEY (`computerID`),
+  ADD KEY `equipmentID` (`equipmentID`);
+
+--
+-- Indexes for table `computer_software`
+--
+ALTER TABLE `computer_software`
+  ADD PRIMARY KEY (`computerID`,`softwareID`),
+  ADD KEY `softwareID` (`softwareID`);
+
+--
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`equipmentID`),
+  ADD KEY `designatedRoom` (`designatedRoom`);
 
 --
 -- Indexes for table `externalusers`
@@ -210,10 +401,23 @@ ALTER TABLE `externalusers`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `microphone`
+--
+ALTER TABLE `microphone`
+  ADD PRIMARY KEY (`microphoneID`),
+  ADD KEY `equipmentID` (`equipmentID`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`roomID`);
+
+--
+-- Indexes for table `software`
+--
+ALTER TABLE `software`
+  ADD PRIMARY KEY (`softwareID`);
 
 --
 -- Indexes for table `universitystaff`
@@ -246,16 +450,52 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `board`
+--
+ALTER TABLE `board`
+  MODIFY `whiteboardID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `buildings`
 --
 ALTER TABLE `buildings`
   MODIFY `buildingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `computers`
+--
+ALTER TABLE `computers`
+  MODIFY `computerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `equipmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `microphone`
+--
+ALTER TABLE `microphone`
+  MODIFY `microphoneID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `software`
+--
+ALTER TABLE `software`
+  MODIFY `softwareID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -274,10 +514,48 @@ ALTER TABLE `adminusers`
   ADD CONSTRAINT `adminusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
 
 --
+-- Constraints for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
+  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`roomID`) REFERENCES `rooms` (`roomID`);
+
+--
+-- Constraints for table `board`
+--
+ALTER TABLE `board`
+  ADD CONSTRAINT `board_ibfk_1` FOREIGN KEY (`equipmentID`) REFERENCES `equipment` (`equipmentID`);
+
+--
+-- Constraints for table `computers`
+--
+ALTER TABLE `computers`
+  ADD CONSTRAINT `computers_ibfk_1` FOREIGN KEY (`equipmentID`) REFERENCES `equipment` (`equipmentID`);
+
+--
+-- Constraints for table `computer_software`
+--
+ALTER TABLE `computer_software`
+  ADD CONSTRAINT `computer_software_ibfk_1` FOREIGN KEY (`computerID`) REFERENCES `computers` (`computerID`),
+  ADD CONSTRAINT `computer_software_ibfk_2` FOREIGN KEY (`softwareID`) REFERENCES `software` (`softwareID`);
+
+--
+-- Constraints for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD CONSTRAINT `equipment_ibfk_1` FOREIGN KEY (`designatedRoom`) REFERENCES `rooms` (`roomID`);
+
+--
 -- Constraints for table `externalusers`
 --
 ALTER TABLE `externalusers`
   ADD CONSTRAINT `externalusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `microphone`
+--
+ALTER TABLE `microphone`
+  ADD CONSTRAINT `microphone_ibfk_1` FOREIGN KEY (`equipmentID`) REFERENCES `equipment` (`equipmentID`);
 
 --
 -- Constraints for table `universitystaff`

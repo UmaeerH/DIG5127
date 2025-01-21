@@ -33,7 +33,7 @@ try {
 }
 
 
-
+// BUILDING / ROOM
 class Building {
     private $buildingID;
     private $buildingName;
@@ -126,6 +126,92 @@ class Room {
     public function setRoomType($roomType) { $this->roomType = $roomType; }
 }
 
+// EQUIPMENT + SOFTWARE
+class Equipment {
+    private $equipmentID;
+    private $model;
+    private $designatedRoom;
+    private $status;
+
+    public function __construct($equipmentID, $model, $designatedRoom, $status) {
+        $this->equipmentID = $equipmentID;
+        $this->model = $model;
+        $this->designatedRoom = $designatedRoom;
+        $this->status = $status;
+    }
+    // Getters
+    public function getEquipmentID() { return $this->equipmentID; }
+    public function getModel() { return $this->model; }
+    public function getDesignatedRoom() { return $this->designatedRoom; }
+    public function getStatus() { return $this->status; }
+    // Setters
+    public function setEquipmentID($equipmentID) { $this->equipmentID = $equipmentID; }
+    public function setModel($model) { $this->model = $model; }
+    public function setDesignatedRoom($designatedRoom) { $this->designatedRoom = $designatedRoom; }
+    public function setStatus($status) { $this->status = $status; }
+}
+
+class Computer extends Equipment {
+    private $computerID;
+    private $dGPU;
+    private $VMcapable;
+    private $operatingSystem;
+
+    public function __construct($equipmentID, $model, $designatedRoom, $status, $computerID, $dGPU, $VMcapable, $operatingSystem) {
+        parent::__construct($equipmentID, $model, $designatedRoom, $status);
+        $this->computerID = $computerID;
+        $this->dGPU = $dGPU;
+        $this->VMcapable = $VMcapable;
+        $this->operatingSystem = $operatingSystem;
+    }
+
+    // Getters
+    public function getComputerID() { return $this->computerID; }
+    public function getDGPU() { return $this->dGPU; }
+    public function getVMcapable() { return $this->VMcapable; }
+    public function getOperatingSystem() { return $this->operatingSystem; }
+    
+    // Setters
+    public function setComputerID($computerID) { $this->computerID = $computerID; }
+    public function setDGPU($dGPU) { $this->dGPU = $dGPU; }
+    public function setVMcapable($VMcapable) { $this->VMcapable = $VMcapable; }
+    public function setOperatingSystem($operatingSystem) { $this->operatingSystem = $operatingSystem; }
+}
+
+class Software {
+    private $softwareID;
+    private $name;
+    private $vendor;
+    private $licenceType;
+    private $licenceExpire;
+
+    public function __construct($softwareID, $name, $vendor, $licenceType, $licenceExpire) {
+        $this->softwareID = $softwareID;
+        $this->name = $name;
+        $this->vendor = $vendor;
+        $this->licenceType = $licenceType;
+        $this->licenceExpire = $licenceExpire;
+    }
+
+    // Getters
+    public function getSoftwareID() { return $this->softwareID; }
+    public function getName() { return $this->name; }
+    public function getVendor() { return $this->vendor; }
+    public function getLicenceType() { return $this->licenceType; }
+    public function getLicenceExpire() { return $this->licenceExpire; }
+    
+    // Setters
+    public function setSoftwareID($softwareID) { $this->softwareID = $softwareID; }
+    public function setName($name) { $this->name = $name; }
+    public function setVendor($vendor) { $this->vendor = $vendor; }
+    public function setLicenceType($licenceType) { $this->licenceType = $licenceType; }
+    public function setLicenceExpire($licenceExpire) { $this->licenceExpire = $licenceExpire; }
+}
+
+
+
+
+// USERS
 class User {
     private $userID;
     private $username;
@@ -183,8 +269,6 @@ class UniversityUser extends User {
     public function getFaculty() { return $this->faculty; }
     public function setFaculty($faculty) { $this->faculty = $faculty; }
 }
-
-
 
 class UniversityStaff extends UniversityUser {
     private $department;
@@ -252,7 +336,5 @@ class ExternalUser extends User {
     public function setCompany($company) { $this->company = $company; }
     public function setRole($role) { $this->role = $role; }
 }
-
-
 
 ?>
