@@ -44,7 +44,7 @@
     <div class="container mt-6">
         <h2 class="text-center">Manage Bookings </h2>
         <h3 class="text-center mb-4">Upcoming: </h3>
-        <div class="row">
+        <div class="bookingrow">
 
         <div class="booking">
             <div class="booking-info">

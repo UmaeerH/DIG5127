@@ -633,10 +633,7 @@ footer div {
     background: #7a7b85;
 }
 
-
-/**Manage Bookinhgs*/
-
-
+/**Manage Bookings*/
 
 nav ul {
     list-style-type: none;
@@ -646,11 +643,11 @@ nav ul {
     justify-content: center;
 }
 
-.row {
+.bookingrow {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     margin: 20px 0;
 }
 
