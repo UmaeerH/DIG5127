@@ -704,3 +704,84 @@ main {
 .cancel-button:hover, .return-button:hover {
     background-color: #2775a8;
 }
+
+/* ABOUT US */
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* Hero Section */
+.au-hero {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/parkside-gallery.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+/* Buttons */
+
+.au-btn-outline {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.au-btn-outline:hover {
+    background-color: #fff;
+    color: #4593A5;
+}
+
+/* Cards */
+.au-building-card {
+    border: none;
+    padding: 10px;
+}
+
+.au-building-card img {
+    border-radius: 10px;
+}
+
+.au-building-card .au-circle-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e9d8fd;
+    color: #6b46c1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.au-building-card .au-btn-primary {
+    background-color: #6b46c1;
+    border: none;
+}
+
+.au-building-card .au-btn-primary:hover {
+    background-color: #5a38a9;
+}
+
+/* Slow Hover Effect */
+.au-slow-hover {
+    transition: all 0.8s ease;
+}
+
+.au-slow-hover:hover {
+    transform: scale(1.1);
+    background-color: #593F8C;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
