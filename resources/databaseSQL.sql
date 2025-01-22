@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2025 at 03:00 PM
+-- Generation Time: Jan 22, 2025 at 04:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -303,6 +303,17 @@ INSERT INTO `externalusers` (`user_id`, `paymentType`, `externalType`, `paymentT
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `favourites`
+--
+
+CREATE TABLE `favourites` (
+  `userID` int(11) NOT NULL,
+  `roomID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `microphone`
 --
 
@@ -322,6 +333,21 @@ INSERT INTO `microphone` (`microphoneID`, `equipmentID`, `fixed`) VALUES
 (3, 62, 0),
 (4, 63, 1),
 (5, 64, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `reportID` int(11) NOT NULL,
+  `RoomID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `problem_type` enum('IT','Electrical','HVAC','Other') NOT NULL,
+  `description` text DEFAULT NULL,
+  `date_reported` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -533,11 +559,26 @@ ALTER TABLE `externalusers`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD PRIMARY KEY (`userID`,`roomID`),
+  ADD KEY `roomID` (`roomID`);
+
+--
 -- Indexes for table `microphone`
 --
 ALTER TABLE `microphone`
   ADD PRIMARY KEY (`microphoneID`),
   ADD KEY `equipmentID` (`equipmentID`);
+
+--
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`reportID`),
+  ADD KEY `RoomID` (`RoomID`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `rooms`
@@ -618,6 +659,12 @@ ALTER TABLE `microphone`
   MODIFY `microphoneID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -684,10 +731,24 @@ ALTER TABLE `externalusers`
   ADD CONSTRAINT `externalusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
 
 --
+-- Constraints for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
+  ADD CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`roomID`) REFERENCES `rooms` (`roomID`);
+
+--
 -- Constraints for table `microphone`
 --
 ALTER TABLE `microphone`
   ADD CONSTRAINT `microphone_ibfk_1` FOREIGN KEY (`equipmentID`) REFERENCES `equipment` (`equipmentID`);
+
+--
+-- Constraints for table `reports`
+--
+ALTER TABLE `reports`
+  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`RoomID`) REFERENCES `rooms` (`roomID`),
+  ADD CONSTRAINT `reports_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `universitystaff`
