@@ -650,7 +650,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex-wrap: nowrap; /* Ensures each item stays on a new line */
+    flex-wrap: nowrap; 
     margin: 20px 0;
 }
 
