@@ -632,3 +632,78 @@ footer div {
 .active {
     background: #7a7b85;
 }
+
+
+/**Manage Bookinhgs*/
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* Ensures each item stays on a new line */
+    margin: 20px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    background-color: #2775a8;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.booking {
+    border: 3px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.booking-info {
+    text-align: left;
+}
+
+.booking-info span {
+    display: block;
+    margin: 5px 0;
+}
+
+.cancel-button, .return-button {
+    padding: 15x 15px;
+    background-color: #2775a8;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cancel-button:hover, .return-button:hover {
+    background-color: #2775a8;
+}
