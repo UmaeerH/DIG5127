@@ -19,7 +19,7 @@
 </head>
 <body>
 
-
+<!-- MAC IS STILL BETTER -->
 
      <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-light bg-teal">
