@@ -1,3 +1,8 @@
+<?php
+include "resources/database.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +24,19 @@
 </head>
 <body>
 
-<!-- MAC IS STILL BETTER -->
+<?php
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} else {
+    // Redirect to login page if not logged in
+    //header("Location: login.php");
+    //exit;
+    $username = "Can not find user";
+}
+?>
 
      <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-teal">
+    <nav class="navbar navbar-expand-lg navbar-light bg-teal">
         <div class="container">
             <a class="navbar-brand" href="index.php">
                     <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
@@ -42,7 +56,7 @@
 
     <!-- Main Content -->
     <div class="container mt-6">
-        <h2 class="text-center">Manage Bookings </h2>
+        <h2 class="text-center"><?php echo $username; ?>'s bookings</h2>
         <h3 class="text-center mb-4">Upcoming: </h3>
         <div class="bookingrow">
 

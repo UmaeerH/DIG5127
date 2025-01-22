@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 10:46 AM
+-- Generation Time: Jan 22, 2025 at 03:00 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -119,7 +119,34 @@ INSERT INTO `computers` (`computerID`, `equipmentID`, `dGPU`, `VMcapable`, `oper
 (4, 4, 1, 1, 'Windows'),
 (5, 5, 1, 1, 'Windows'),
 (6, 6, 1, 1, 'Windows'),
-(7, 7, 0, 0, 'Windows');
+(7, 7, 0, 0, 'Windows'),
+(8, 8, 0, 1, 'MacOS'),
+(9, 9, 0, 1, 'MacOS'),
+(10, 10, 0, 1, 'MacOS'),
+(11, 11, 0, 1, 'MacOS'),
+(12, 12, 0, 1, 'MacOS'),
+(13, 13, 0, 1, 'MacOS'),
+(14, 14, 0, 1, 'MacOS'),
+(15, 15, 0, 1, 'MacOS'),
+(16, 16, 0, 1, 'MacOS'),
+(17, 17, 0, 1, 'MacOS'),
+(18, 18, 0, 1, 'MacOS'),
+(19, 19, 0, 1, 'MacOS'),
+(20, 20, 0, 1, 'MacOS'),
+(21, 21, 0, 1, 'MacOS'),
+(22, 22, 0, 1, 'MacOS'),
+(23, 23, 0, 1, 'MacOS'),
+(24, 24, 0, 1, 'MacOS'),
+(25, 25, 0, 1, 'MacOS'),
+(26, 26, 0, 1, 'MacOS'),
+(27, 27, 0, 1, 'MacOS'),
+(28, 28, 0, 1, 'Linux'),
+(29, 29, 0, 1, 'Linux'),
+(30, 30, 0, 1, 'Linux'),
+(31, 31, 0, 1, 'Linux'),
+(32, 32, 0, 1, 'Linux'),
+(33, 33, 0, 1, 'Linux'),
+(34, 65, 0, 1, 'Linux');
 
 -- --------------------------------------------------------
 
@@ -154,7 +181,41 @@ INSERT INTO `computer_software` (`computerID`, `softwareID`) VALUES
 (5, 4),
 (6, 2),
 (6, 3),
-(6, 4);
+(6, 4),
+(8, 6),
+(9, 6),
+(10, 6),
+(11, 6),
+(12, 6),
+(13, 6),
+(14, 6),
+(15, 6),
+(16, 6),
+(17, 6),
+(18, 6),
+(19, 6),
+(20, 6),
+(21, 6),
+(22, 6),
+(23, 6),
+(24, 6),
+(25, 6),
+(26, 6),
+(27, 6),
+(28, 1),
+(28, 2),
+(29, 1),
+(29, 2),
+(30, 1),
+(30, 2),
+(31, 1),
+(31, 2),
+(32, 1),
+(32, 2),
+(33, 1),
+(33, 2),
+(34, 1),
+(34, 2);
 
 -- --------------------------------------------------------
 
@@ -180,7 +241,39 @@ INSERT INTO `equipment` (`equipmentID`, `model`, `designatedRoom`, `status`) VAL
 (4, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
 (5, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
 (6, 'Lenovo ThinkStation P620 Tower', 1, 'Operational'),
-(7, 'Lenovo ThinkStation P720', 3, 'Operational');
+(7, 'Lenovo ThinkStation P720', 3, 'Operational'),
+(8, 'Apple iMac 24', 2, 'Operational'),
+(9, 'Apple iMac 24', 2, 'Operational'),
+(10, 'Apple iMac 24', 2, 'Operational'),
+(11, 'Apple iMac 24', 2, 'Operational'),
+(12, 'Apple iMac 24', 2, 'Operational'),
+(13, 'Apple iMac 24', 2, 'Operational'),
+(14, 'Apple iMac 24', 2, 'Operational'),
+(15, 'Apple iMac 24', 2, 'Operational'),
+(16, 'Apple iMac 24', 2, 'Operational'),
+(17, 'Apple iMac 24', 2, 'Operational'),
+(18, 'Apple iMac 24', 2, 'Operational'),
+(19, 'Apple iMac 24', 2, 'Operational'),
+(20, 'Apple iMac 24', 2, 'Operational'),
+(21, 'Apple iMac 24', 2, 'Operational'),
+(22, 'Apple iMac 24', 2, 'Operational'),
+(23, 'Apple iMac 24', 2, 'Operational'),
+(24, 'Apple iMac 24', 2, 'Operational'),
+(25, 'Apple iMac 24', 2, 'Operational'),
+(26, 'Apple iMac 24', 2, 'Operational'),
+(27, 'Apple iMac 24', 2, 'Operational'),
+(28, 'Linux Workstation', 15, 'Operational'),
+(29, 'Linux Workstation', 15, 'Operational'),
+(30, 'Linux Workstation', 15, 'Operational'),
+(31, 'Linux Workstation', 15, 'Operational'),
+(32, 'Linux Workstation', 15, 'Operational'),
+(33, 'Linux Workstation', 15, 'Non-Functional'),
+(60, 'Sony Microphone 250', 3, 'Operational'),
+(61, 'Hitachi Microphone 250', 3, 'Operational'),
+(62, 'Sony Microphone 250', 7, 'Operational'),
+(63, 'Milab 2000', 14, 'Operational'),
+(64, 'Nevaton 800F', 18, 'Operational'),
+(65, 'Linux Laptop', 9, 'Operational');
 
 -- --------------------------------------------------------
 
@@ -199,6 +292,14 @@ CREATE TABLE `externalusers` (
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `externalusers`
+--
+
+INSERT INTO `externalusers` (`user_id`, `paymentType`, `externalType`, `paymentToken`, `paymentIndentifier`, `paymentDate`, `company`, `role`) VALUES
+(4, NULL, 'Enterprise', NULL, NULL, NULL, 'Google', 'Software Engineer'),
+(5, NULL, 'Private', NULL, NULL, NULL, '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -210,6 +311,17 @@ CREATE TABLE `microphone` (
   `equipmentID` int(11) NOT NULL,
   `fixed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `microphone`
+--
+
+INSERT INTO `microphone` (`microphoneID`, `equipmentID`, `fixed`) VALUES
+(1, 60, 0),
+(2, 61, 1),
+(3, 62, 0),
+(4, 63, 1),
+(5, 64, 0);
 
 -- --------------------------------------------------------
 
@@ -242,7 +354,15 @@ INSERT INTO `rooms` (`roomID`, `building`, `roomName`, `roomDesc`, `roomImg`, `f
 (7, 3, 'C087', 'A great large hall, perfect for deliverying powerful and impactful lessons', 'public_html/images/LectureHall4.webp', 0, 200, 'Hall'),
 (8, 3, 'C125', 'A computer lab, perfect for technical classes which require specialist software.', 'public_html/images/Mp-classroom2.jpeg', 1, 30, 'Classroom'),
 (9, 4, 'CST302', 'A modern, sleek and bright classroom, perfect for technology courses. Fit with many outlets and a strong connection to support BYOD classes', 'public_html/images/SH-classroom3.jpg', 3, 30, 'Classroom'),
-(10, 1, 'MP052', 'An Engineering lab, with specialist equipment for mechanical and electrical engineering', 'public_html/images/Lab1.webp', 0, 25, 'Lab');
+(10, 1, 'MP052', 'An Engineering lab, with specialist equipment for mechanical and electrical engineering', 'public_html/images/Lab1.webp', 0, 25, 'Lab'),
+(11, 2, 'PS201', 'A classroom equipped with interactive whiteboards and projectors, perfect for collaborative learning.', 'public_html/images/PS-classroom2.jpeg', 2, 30, 'Classroom'),
+(12, 2, 'PS207', 'A spacious classroom with ergonomic seating and plenty of natural light, ideal for extended study sessions.', 'public_html/images/PS-classroom2.jpeg', 2, 35, 'Classroom'),
+(13, 2, 'P301', 'A modern classroom with state-of-the-art audio-visual equipment, fostering an engaging learning environment.', 'public_html/images/PS-classroom2.jpeg', 3, 30, 'Classroom'),
+(14, 2, 'P302', 'A versatile classroom designed for both traditional lectures and hands-on activities.', 'public_html/images/PS-classroom2.jpeg', 3, 45, 'Classroom'),
+(15, 2, 'PS303', 'A tech-savvy classroom featuring advanced computer systems and collaborative workspaces.', 'public_html/images/PS-classroom2.jpeg', 3, 40, 'Classroom'),
+(16, 3, 'CCZ101', 'A dynamic classroom equipped with high-speed internet and modern furnishings, designed for innovative learning.', 'public_html/images/curzon-classroom.jpeg', 1, 35, 'Classroom'),
+(17, 3, 'C202', 'A vibrant classroom featuring ample natural light and ergonomic seating, perfect for engaging lectures.', 'public_html/images/curzon-classroom.jpeg', 2, 40, 'Classroom'),
+(18, 3, 'CCZ303', 'A tech-forward classroom complete with advanced audio-visual equipment and collaborative workspaces.', 'public_html/images/curzon-classroom.jpeg', 3, 45, 'Classroom');
 
 -- --------------------------------------------------------
 
@@ -267,7 +387,8 @@ INSERT INTO `software` (`softwareID`, `name`, `vendor`, `licenceType`, `licenceE
 (2, 'VirtualBox', 'Oracle', 'Perpetual', NULL),
 (3, 'MATLAB', 'MathWorks', 'Educational', '2026-05-15'),
 (4, 'Fusion360', 'Autodesk', 'Educational', '2025-11-18'),
-(5, 'Unity Pro', 'Unity Technologies', 'Commercial', '2026-10-20');
+(5, 'Unity Pro', 'Unity Technologies', 'Commercial', '2026-10-20'),
+(6, 'Krita', 'Krita Foundation', 'Perpetual', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,6 +400,13 @@ CREATE TABLE `universitystaff` (
   `user_id` int(11) NOT NULL,
   `department` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `universitystaff`
+--
+
+INSERT INTO `universitystaff` (`user_id`, `department`) VALUES
+(3, 'Teaching');
 
 -- --------------------------------------------------------
 
@@ -316,7 +444,8 @@ CREATE TABLE `universityusers` (
 --
 
 INSERT INTO `universityusers` (`user_id`, `university_name`, `faculty`) VALUES
-(1, 'Birmingham City University', 'CEBE');
+(1, 'Birmingham City University', 'CEBE'),
+(3, 'Birmingham City University', 'CEBE');
 
 -- --------------------------------------------------------
 
@@ -340,7 +469,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `password`, `email`, `created_at`, `firstName`, `lastName`, `userType`) VALUES
-(1, 'user1', '$2y$10$wJ4nFFuC8AYmDvFuj4dCC.OiJHCUfFwvwj.wk9/TZCStm3PUJvNAq', 'test@mail.com', '2025-01-19 23:32:09', 'John', 'Doe', 'University');
+(1, 'user1', '$2y$10$wJ4nFFuC8AYmDvFuj4dCC.OiJHCUfFwvwj.wk9/TZCStm3PUJvNAq', 'test@mail.com', '2025-01-19 23:32:09', 'John', 'Doe', 'University'),
+(3, 'JaneyBooking', '$2y$10$rdugXxAV6rqy8tPYU3HVk.yY0z9Iip4hMWgvnfapmzsUCf56ZPCZG', 'JDmail@gmail.com', '2025-01-22 00:47:16', 'Jane', 'Dane', 'University'),
+(4, 'businessUser', '$2y$10$e0moDCfp5Px9FfFXGGx6SuvWmmUu7qBzYHk7y3nRs3lvwCFmoH/p6', 'businessmail@business.com', '2025-01-22 00:47:50', 'Business', 'Man', 'External'),
+(5, 'unkn0wn', '$2y$10$0mF6yIoWQ/jG82lJ.9rcs.W.VdP2YYHhSVffWp9fH/3pcMaozLDgy', 'hackermail@proton.me', '2025-01-22 00:48:47', 'Elliot', 'Alderson', 'External');
 
 --
 -- Indexes for dumped tables
@@ -471,37 +603,37 @@ ALTER TABLE `buildings`
 -- AUTO_INCREMENT for table `computers`
 --
 ALTER TABLE `computers`
-  MODIFY `computerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `computerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `equipmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `equipmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `microphone`
 --
 ALTER TABLE `microphone`
-  MODIFY `microphoneID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `microphoneID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `software`
 --
 ALTER TABLE `software`
-  MODIFY `softwareID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `softwareID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

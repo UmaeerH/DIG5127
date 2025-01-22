@@ -2,10 +2,8 @@
 session_start();
 ?>
 
-
-
 <?php
-// Dummy Data for the the page Im just testing to see if it works
+// Dummy Data
 $timeSlots = [
     "11:00" => "available",
     "12:00" => "selected",
@@ -15,10 +13,7 @@ $timeSlots = [
     "16:00" => "booked",
     "17:00" => "available",
 ];
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +24,7 @@ $timeSlots = [
 
     <!-- LINKS
          Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel="nofollow" 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- External CSS -->
     <link rel="stylesheet" href="public_html/style/main.css">
@@ -37,7 +32,6 @@ $timeSlots = [
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="public_html/js/main.js"></script>
-
 
     <title>Room Selection</title>
 </head>
@@ -67,7 +61,7 @@ $timeSlots = [
         <div class="availability-key">
             <p>
                 <span class="key-selected"></span> Selected
-                <span class="key-available" ></span> Available
+                <span class="key-available"></span> Available
                 <span class="key-booked"></span> Fully Booked
             </p>
         </div>
@@ -77,7 +71,10 @@ $timeSlots = [
             <div class="col-md-4 calendar-container">
                 <h5>Select a Date and Time</h5>
                 <form method="POST" action="RoomSelection.php">
+                    <?php $buildingID = isset($_GET['buildingID']) ? intval($_GET['buildingID']) : (isset($_POST['buildingID']) ? intval($_POST['buildingID']) : 0); ?>
+                    <input type="hidden" name="buildingID" value="<?php echo $buildingID; ?>">
                     <input type="date" name="selected_date" class="form-control" value="2023-08-17">
+                    <input type="number" name="min_seats" class="form-control mt-3" placeholder="Minimum Required Seats" min="1" max="100">
                     <button type="submit" class="btn btn-primary mt-3">View Times</button>
                 </form>
             </div>
@@ -89,6 +86,7 @@ $timeSlots = [
                 foreach ($timeSlots as $time => $status) {
                     $class = $status === 'booked' ? 'time-slot booked' : ($status === 'selected' ? 'time-slot selected' : 'time-slot');
                     echo "<form method='POST' action='RoomSelection.php'>
+                            <input type='hidden' name='buildingID' value='$buildingID'>
                             <button name='selected_time' value='$time' class='$class'>$time</button>
                           </form>";
                 }
@@ -105,13 +103,13 @@ $timeSlots = [
                 die("Database connection not established.");
             }
 
-            // Retrieve buildingID from the query string
-            $buildingID = isset($_GET['buildingID']) ? intval($_GET['buildingID']) : 0;
+            // Retrieve buildingID from the query string or POST data
+            $buildingID = isset($_POST['buildingID']) ? intval($_POST['buildingID']) : (isset($_GET['buildingID']) ? intval($_GET['buildingID']) : 0);
+            $minSeats = isset($_POST['min_seats']) ? intval($_POST['min_seats']) : 0;
 
             if ($buildingID > 0) {
-                $roomSql = "SELECT * FROM rooms WHERE building = $buildingID";
+                $roomSql = "SELECT * FROM rooms WHERE building = $buildingID AND capacity >= $minSeats";
                 $fetchedRooms = mysqli_query($conn, $roomSql);
-
 
                 foreach ($fetchedRooms as $room) {
                     $class = 'room-card';
@@ -125,6 +123,7 @@ $timeSlots = [
                             <img src='{$room['roomImg']}' alt='{$room['roomName']}'>
                             <form method='GET' action='RoomBooking.php'>
                                 <button name='roomID' value='{$room['roomID']}' class='btn btn-primary mt-2' $disabled>Book</button>
+                                <input type='hidden' name='buildingID' value='$buildingID'>
                             </form>
                           </div>";
                 }
