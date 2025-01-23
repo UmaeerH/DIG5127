@@ -44,8 +44,8 @@ if(isset($_SESSION['username'])) {
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="index.php">Home</a>
                 <a class="nav-item nav-link" href="BookRooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
-                <a class="nav-item nav-link active" href="AboutUs.php">About Us</a>
+                <a class="nav-item nav-link active" href="ManageBookings.php">Manage Bookings</a>
+                <a class="nav-item nav-link" href="AboutUs.php">About Us</a>
                 <a class="nav-item nav-link" href="ReportPage.php">Report</a>
                 
             <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>

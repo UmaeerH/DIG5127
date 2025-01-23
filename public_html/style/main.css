@@ -207,6 +207,56 @@
 
 /* BookRooms.php */
 
+.header-br {
+    position: relative;
+    background-color: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7));
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .header-br video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .header-br .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header-br .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #0b1d45;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  @media (pointer: coarse) and (hover: none) {
+    .header-br {
+      background: url(public_html/images/steamhouse-exterior) black no-repeat center center scroll;
+    }
+  
+    .header-br video {
+      display: none;
+    }
+  }
+
 
 .container h2, .container h3 {
     color: #005662;
