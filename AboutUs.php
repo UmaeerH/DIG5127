@@ -60,7 +60,7 @@ session_start();
                     font-size: 25px;
                 }
             </style>
-            <a href="#" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
+            <a href="SignUp.php" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
         </div>
     </section>
     <style>
@@ -231,11 +231,11 @@ session_start();
                 <div class="col">
                     <h3>Other Pages</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Home</a></li>
-                        <li><a href="#" class="text-white">Book Room</a></li>
-                        <li><a href="#" class="text-white">Manage Bookings</a></li>
-                        <li><a href="#" class="text-white">About Us</a></li>
-                        <li><a href="#" class="text-white">Report</a></li>
+                        <li><a href="index.php" class="text-white">Home</a></li>
+                        <li><a href="BookRooms.php" class="text-white">Book Room</a></li>
+                        <li><a href="ManageBookings.php" class="text-white">Manage Bookings</a></li>
+                        <li><a href="AboutUs.php" class="text-white">About Us</a></li>
+                        <li><a href="ReportPage.php" class="text-white">Report</a></li>
                     </ul>
                 </div>
                 <div class="col-7">
