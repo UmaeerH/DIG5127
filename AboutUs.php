@@ -98,10 +98,16 @@ session_start();
 <body>
 <div class="container py-5">
         <div class="row" style="row-gap: 30px;">
+            <div class="container text-center">
+                <h1 class="display-4">Our Buildings</h1>
+            </div>
+        <h1 class="lead text-center"> Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
+        interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, 
+        and comprehensive building details, we make finding the perfect space effortless.</h1>
             <!-- Millenium Point -->
             <div class="col-md-6">
                 <div class="expandCard au-building-card h-100">
-                    <div class="expandCard-body text-center">
+                    <div class="card-body text-center">
                         <div class="au-circle-icon mx-auto mb-3">A</div>
                         <h5 class="card-title">Millenium Point Building</h5>
                         <img src="public_html/images/mp-exterior.jpeg" class="img-fluid my-3" alt="Millenium Point">
@@ -113,7 +119,7 @@ session_start();
                                 color: #ffffff;
                             }
                         </style>
-                        <a href="#" class="btn btn-custom au-slow-hover">Book Now</a>
+                        <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -133,7 +139,7 @@ session_start();
                                 color: #ffffff;
                             }
                         </style>
-                        <a href="#" class="btn btn-custom au-slow-hover">Book Now</a>
+                        <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -153,7 +159,7 @@ session_start();
                                 color: #ffffff;
                             }
                         </style>
-                        <a href="#" class="btn btn-custom au-slow-hover">Book Now</a>
+                        <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +179,7 @@ session_start();
                                 color: #ffffff;
                             }
                         </style>
-                        <a href="#" class="btn btn-custom au-slow-hover">Book Now</a>
+                        <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -199,11 +205,13 @@ session_start();
                         color: #fff;
                     }
                     </style>
-                    <a href="#" class="btn btn-outline-custom btn-lg au-slow-hover">Contact</a>
+                    <a href="BookRooms.php" class="btn btn-outline-custom btn-lg au-slow-hover">Contact</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!---- FOOTER ---->
     <style>
         .bg-dark-custom {
             background-color: #4593A5;
@@ -212,14 +220,14 @@ session_start();
     <footer class="bg-dark-custom text-black py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col">
                     <h3>Get in Touch</h3>
                     <form action="#" method="post" class="mt-3">
                         <input type="text" name="EMAIL" class="form-control mb-2" placeholder="Email">
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col">
                     <h3>Other Pages</h3>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Home</a></li>
@@ -228,6 +236,9 @@ session_start();
                         <li><a href="#" class="text-white">About Us</a></li>
                         <li><a href="#" class="text-white">Report</a></li>
                     </ul>
+                </div>
+                <div class="col-7">
+                    <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
                 </div>
             </div>
         </div>
@@ -250,6 +261,7 @@ session_start();
     -->
 
  <!-- Footer -->
+  <!--
  <footer class="text-white text-center py-3 mt-5">
         <div class="container">
         <ul class="list-inline">
@@ -262,3 +274,4 @@ session_start();
     </footer>
 </body>
 </html>
+-->
