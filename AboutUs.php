@@ -53,57 +53,18 @@ include "resources/html_construct.php";
         <div class="container d-flex flex-column justify-content-center align-items-center h-100">
             <h1 class="display-4">About Us</h1>
             <p class="lead">Welcome to the Birmingham City University Room Booking Platform! <br> Our mission is to simplify room bookings and scheduling across all BCU buildings, ensuring a seamless <br> and efficient experience for students, staff, and visitors.</p>
-            <style>
-                .btn-outline-custom {
-                    background-color: transparent;
-                    border: 2px solid #fff;
-                    color: #fff;
-                    font-size: 25px;
-                }
-            </style>
             <a href="SignUp.php" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
         </div>
     </section>
-    <style>
-        .building-card {
-            border: none;
-        }
-
-        .building-card img {
-            border-radius: 10px;
-        }
-
-        .building-card .circle-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #e9d8fd;
-            color: #6b46c1;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 20px;
-        }
-
-        .building-card .btn-primary {
-            background-color: #6b46c1;
-            border: none;
-        }
-
-        .building-card .btn-primary:hover {
-            background-color: #5a38a9; 
-        }
-    </style>
 
 <!--Body-->
 <body>
-<div class="container" style="padding-bottom: 65px; padding-top: 70px;">
-        <div class="row" style="row-gap: 40px;">
+<div class="container">
+        <div class="row" class="au-column">
             <div class="container text-center">
                 <h1 class="display-4">Our Buildings</h1>
             </div>
-        <h1 class="lead text-center" style="padding-bottom:20px;"> Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
+        <h1 class="lead text-center"> Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
         interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, 
         and comprehensive building details, we make finding the perfect space effortless.</h1>
             <!-- Millenium Point -->
@@ -115,12 +76,6 @@ include "resources/html_construct.php";
                         <img src="public_html/images/mp-exterior.jpeg" class="img-fluid my-3" alt="Millenium Point">
                         <h6>40+ Rooms Available</h6>
                         <p class="card-text">Located in the heart of the city centre, this lively and bright room would be a great choice for those looking for a private and quiet place to meet with their team.</p>
-                        <style>
-                            .btn-custom {
-                                background-color: #5a38a9;
-                                color: #ffffff;
-                            }
-                        </style>
                         <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
@@ -135,12 +90,6 @@ include "resources/html_construct.php";
                         <img src="public_html/images/parkside-gallery.jpeg" class="img-fluid my-3" alt="Parkside Building">
                         <h6>30+ Rooms Available</h6>
                         <p class="card-text">The twin building of Millenium Point contains a lot of equipment for those studying or interested in the arts such as music and painting.</p>
-                        <style>
-                            .btn-custom {
-                                background-color: #5a38a9;
-                                color: #ffffff;
-                            }
-                        </style>
                         <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
@@ -155,12 +104,6 @@ include "resources/html_construct.php";
                         <img src="public_html/images/curson-slider.jpeg" class="img-fluid my-3" alt="Curzon Building">
                         <h6>60+ Rooms Available</h6>
                         <p class="card-text">Located in the heart of the city centre, this lively and bright room would be a great choice for those looking for a private and quiet place to meet with their team.</p>
-                        <style>
-                            .btn-custom {
-                                background-color: #5a38a9;
-                                color: #ffffff;
-                            }
-                        </style>
                         <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
@@ -175,12 +118,6 @@ include "resources/html_construct.php";
                         <img src="public_html/images/steamhouse-exterior.jpeg" class="img-fluid my-3" alt="STEAMhouse Building">
                         <h6>50+ Rooms Available</h6>
                         <p class="card-text">Created with technology and innovation in mind, this cutting-edge building contains all the equipment a modern team would require to make the most out of their meetings.</p>
-                        <style>
-                            .btn-custom {
-                                background-color: #5a38a9;
-                                color: #ffffff;
-                            }
-                        </style>
                         <a href="BookRooms.php" class="btn btn-custom au-slow-hover">Book Now</a>
                     </div>
                 </div>
@@ -188,25 +125,13 @@ include "resources/html_construct.php";
         </div>
     </div>
 
-    <section class="bg-light" style="padding: 65px;">
+    <section class="bg-light">
         <div class="container text-center">
             <h1>Require space for studying, meetings or events?</h1>
             <p>We're here to support your academic and professional journey by providing a reliable and organized system that saves you time and keeps you focused on what matters most. </p>
-            <style>
-                .bg-light-custom {
-                    background-color: #e4cdff !important;
-                }
-            </style>
             <div class="card bg-light-custom text-black mt-4">
                 <div class="card-body">
                     <p>Contact OpenBook for further enquiries</p>
-                    <style>
-                    .btn-outline-custom {
-                        background-color: transparent;
-                        border: 2px solid #fff;
-                        color: #fff;
-                    }
-                    </style>
                     <a href="BookRooms.php" class="btn btn-outline-custom btn-lg au-slow-hover">Contact</a>
                 </div>
             </div>

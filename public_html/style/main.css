@@ -798,6 +798,9 @@ p {
 }
 
 /* Cards */
+.col-md-6 {
+    padding-bottom: 40px;
+}
 .au-building-card {
     border: none;
     padding: 10px;
@@ -839,5 +842,76 @@ p {
     background-color: #593F8C;
     color: #fff;
     border: 2px solid #fff;
+}
+
+/* Circle icon inside card */
+.building-card {
+    border: none;
+}
+
+.building-card img {
+    border-radius: 10px;
+}
+
+.building-card .circle-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e9d8fd;
+    color: #6b46c1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.building-card .btn-primary {
+    background-color: #6b46c1;
+    border: none;
+}
+
+.building-card .btn-primary:hover {
+    background-color: #5a38a9; 
+}
+
+/* Body/Content */
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 25px;
+}
+
+.btn-custom {
+    background-color: #5a38a9;
+    color: #ffffff;
+}
+
+.bg-light-custom {
+    background-color: #e4cdff !important;
+}
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.bg-light {
+    padding-bottom: 65px; padding-top: 70px;
+}
+
+.lead {
+    padding-bottom: 35px;
+}
+
+.row {
+    padding-top: 45px;
+}
+
+.display-4 {
+    padding-bottom: 20px;
 }
 
