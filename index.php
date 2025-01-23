@@ -41,7 +41,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
         <div class="container">
             <div class="d-flex justify-content-end">
                 <?php if (isset($_SESSION['username'])): ?>
-                    <span class="text-light px-3">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+                    <a href="manageAccount.php" class="btn btn-link text-light px-3">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</a>
                     <a href="index.php?action=logout" class="btn btn-link text-light px-3">Log Out</a>
                 <?php else: ?>
                     <a href="SignUp.php" class="btn btn-link text-light px-3">Sign Up</a>
@@ -59,7 +59,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
             </div>
             <h2 class="text-secondary mb-4">A Smart Way To Book Out Your Rooms</h2>
             <div class="mt-3">
-                <a href="SignUp.php" class="btn btn-primary btn-lg mx-2">Sign Up</a>
+            <?php if (isset($_SESSION['username'])): ?>
+                <a href="ManageBookings.php" class="btn btn-primary btn-lg mx-2">View my bookings</a>
+                <?php else: ?>
+                    <a href="SignUp.php" class="btn btn-primary btn-lg mx-2">Sign Up</a>
+            <?php endif; ?>
             </div>
         </div>
     </main>

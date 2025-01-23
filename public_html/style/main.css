@@ -38,16 +38,13 @@
     color: white;
 }
 
-#navbarNav {
-    background-color: #008080; /* Change to your desired background color */
-}
 
 #navbarNav .nav-link {
-    color: white !important; /* Change to your desired text color */
+    color: white !important; 
 }
 
 #navbarNav .nav-link:hover {
-    color: #d3d3d3 !important; /* Change to your desired hover text color */
+    color: #d3d3d3 !important;
 }
 
 .OBLogo {
