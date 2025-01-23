@@ -91,13 +91,13 @@ include 'resources/html_construct.php';
 
         <!-- Hidden Form -->
         <div class="hidden-form mt-4">
-            <h3 class="text-center">Provide More Relating to -</h3>
+            <h4 class="text-center">Please provide more information about the issue</h4>
             <form id="report-form">
                 <div class="form-group">
                     <label for="details">Describe the issue:</label>
                     <textarea id="details" class="form-control" rows="4" placeholder="Provide a detailed description of the issue..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                <button type="submit" class="btn btn-primary btn-block p-3">Submit</button>
             </form>
         </div>
     </div>

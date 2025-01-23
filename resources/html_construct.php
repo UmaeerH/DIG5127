@@ -2,7 +2,7 @@
 
 function display_footer() {     
     echo '
-    <footer class="footer text-center py-3 text-light">
+    <footer class="footer text-center py-3 text-light mt-5">
         <div class="container">
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>';

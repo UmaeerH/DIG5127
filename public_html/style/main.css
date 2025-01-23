@@ -7,7 +7,7 @@
 
 /* Header */
 .header {
-    background-color: #4593A5;
+    background-color: #07010f;
     padding: 1rem 2rem;
     position: relative;
     z-index: 10;
@@ -73,7 +73,7 @@ body {
 
 .body-content {
     flex-grow: 1; 
-    background: linear-gradient(to right, #e0e7ff, #f8f9fa);
+    background: linear-gradient(to bottom, #bcb9e9, #f9f9f9);
     padding: 2rem;
     z-index: 5;
 }
@@ -131,7 +131,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #4593A5;
+    background-color: #07010f;
     padding: 1rem;
     text-align: center;
     z-index: 10;
