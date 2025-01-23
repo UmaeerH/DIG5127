@@ -32,8 +32,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     <title>OpenBook Home</title>
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
-
+<body>
     <!-- Header -->
     <header class="header text-center py-4 ">
         <img src="public_html/images/purple-circle-shape.png" alt="Left Decorative Circle" class="circle left-circle">
