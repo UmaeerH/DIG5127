@@ -63,12 +63,12 @@ session_start(); // Start the session
             foreach ($fetchedBuildings as $building) {
                 echo "
                 <div class='col-md-3'>
-                    <div class='card'>
+                    <div class='card h-100'>
                         <img class='card-img-top' src='{$building['buildingImg']}' alt='{$building['buildingName']}'>
-                        <div class='card-body'>
+                        <div class='card-body d-flex flex-column'>
                             <h5 class='card-title'>{$building['buildingName']}</h5>
                             <p class='card-text'>{$building['buildingDesc']}</p>
-                            <a href='RoomSelection.php?buildingID={$building['buildingID']}' class='btn btn-primary'>Book Now</a>
+                            <a href='RoomSelection.php?buildingID={$building['buildingID']}' class='btn btn-primary mt-auto'>Book Now</a>
                         </div>
                     </div>
                 </div>
