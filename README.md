@@ -13,11 +13,13 @@ Private Repo for our 2nd year project
 ## File Structure 🌳
 - public_html
     - images 📁
+    - videos
     - js 📁
     - style 📁
 - resources
     - app_config 📐
-    - database.php 🐘
+    - database.php 🐘🐬
+    - html_construct.php 📏
     - database seeding file 🌱
 
 

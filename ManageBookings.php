@@ -23,20 +23,19 @@ session_start();
 
     <title> Manage Bookings </title>
 </head>
-<body>
 
+<body>
 <?php
 if(isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 } else {
     // Redirect to login page if not logged in
-    //header("Location: login.php");
-    //exit;
-    $username = "Can not find user";
+    header("Location: login.php");
+    exit;
 }
 ?>
 
-     <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-teal">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -119,6 +118,7 @@ if(isset($_SESSION['username'])) {
             
         </div>
 
+    </div>
     </div>
     
     <!-- Footer -->

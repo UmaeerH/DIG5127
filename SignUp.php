@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
-                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" style="height: 80px; max-width: 100%; margin-right: 10px;">
+                <img src="public_html/images/OpenBook_LogoLight.png" alt="OpenBook Logo" class="HdrlogoLight" style="height: 80px; max-width: 100%; margin-right: 10px;">
                 <span class="d-none">OpenBook</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,6 +132,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.php">Log in</a>
                     </li>
                 </ul>
             </div>
@@ -208,57 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ?>
 
 <script>
-    const userTypeField = document.querySelector('[name="user_type"]');
-    const additionalFields = document.getElementById('additional-fields');
-
-    userTypeField.addEventListener('change', () => {
-        const userType = userTypeField.value;
-        additionalFields.innerHTML = '';
-
-        if (userType === 'Student') {
-            additionalFields.innerHTML = `
-                <div class="form-group">
-                    <label for="university_name">University Name</label>
-                    <input type="text" name="university_name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="faculty">Faculty</label>
-                    <input type="text" name="faculty" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="student_id">Student ID</label>
-                    <input type="text" name="student_id" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="course">Course</label>
-                    <input type="text" name="course" class="form-control" required>
-                </div>`;
-        } else if (userType === 'Staff') {
-            additionalFields.innerHTML = `
-                <div class="form-group">
-                    <label for="university_name">University Name</label>
-                    <input type="text" name="university_name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="faculty">Faculty</label>
-                    <input type="text" name="faculty" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <input type="text" name="department" class="form-control" required>
-                </div>`;
-        } else if (userType === 'Enterprise') {
-            additionalFields.innerHTML = `
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" name="company" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="role">Role</label>
-                    <input type="text" name="role" class="form-control" required>
-                </div>`;
-        }
-    });
+    src="public_html/js/main.js"
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
