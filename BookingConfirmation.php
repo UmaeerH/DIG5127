@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'resources/html_construct.php';
 ?>
 
 <?php
@@ -86,15 +87,10 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <footer class="footer mt-5">
-        <div class="container text-center">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.php">Home</a></li>
-                <li class="list-inline-item"><a href="#">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#">Legal</a></li>
-            </ul>
-            <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <?php
+        display_footer();
+    ?>
+
 </body>
 </html>

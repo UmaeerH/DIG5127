@@ -1,4 +1,8 @@
-<php?>
+<?php
+require 'resources/database.php';
+include 'resources/html_construct.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +26,7 @@
 </head>
 
 
+<body>
 <h1> Update Successful </h1>
 <h1> FROM </h1>
 <div class="time-box">
@@ -35,3 +40,9 @@
                 <h1> TO </h1> 
 
 
+<!-- Footer -->
+    <?php
+        display_footer();
+    ?>
+</body>
+</html>

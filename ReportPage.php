@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'resources/html_construct.php';
 ?>
 
 <!DOCTYPE html>
@@ -102,32 +103,9 @@ session_start();
     </div>
 
     <!-- Footer -->
-    <footer class="text-white text-center py-3 mt-5">
-        <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+    <?php
+        display_footer();
+    ?>
 
-    <!--<script>
-            $(document).ready(function () {
-                $('.card').click(function () {
-                    const issue = $(this).data('issue');
-                    $('.hidden-form').show();
-                    $('#details').focus().attr('placeholder', Describe the issue: ${issue});
-                });
-
-                $('#report-form').submit(function (event) {
-                    event.preventDefault();
-                    alert('Thank you for reporting the issue. We will address it as soon as possible.');
-                    $('#report-form')[0].reset();
-                    $('.hidden-form').hide();
-                });
-            });
-        </script>    -->
 </body>
-</html>                                                                                      
+</html>

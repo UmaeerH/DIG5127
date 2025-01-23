@@ -1,5 +1,6 @@
 <?php
 // this pages Dummy Data
+include 'resources/html_construct.php';
 $roomName = "Room C218";
 $timeSlot = "12:00 - 13:00";
 $status = "Session Booked";
@@ -68,15 +69,9 @@ $image = "public_html/images/curson-slider.jpeg";
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.php">Home</a></li>
-                <li class="list-inline-item"><a href="#">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#">Legal</a></li>
-            </ul>
-            <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+    <?php
+        display_footer();
+    ?>
+    
 </body>
 </html>

@@ -2,6 +2,7 @@
 session_start();
 
 include "resources/database.php";
+include 'resources/html_construct.php';
 
 if ($conn === null) {
     die("Database connection not established.");
@@ -105,17 +106,8 @@ mysqli_close($conn);
     </div>
 
     <!-- Footer -->
-    <footer class="text-light py-4" style="background-color: #008080;">
-        <div class="container text-center">
-            <ul class="list-inline mb-3">
-                <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-                <li class="list-inline-item"><span>|</span></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-                <li class="list-inline-item"><span>|</span></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="mb-0">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+    <?php
+        display_footer();
+    ?>
 </body>
 </html>

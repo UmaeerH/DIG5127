@@ -1,5 +1,6 @@
 <?php
 session_start(); // Start the session
+include 'resources/html_construct.php';
 ?>
 
 <!DOCTYPE html>
@@ -99,15 +100,9 @@ session_start(); // Start the session
     </div>
 
     <!-- Footer -->
-    <footer class="text-white text-center py-3 mt-5">
-        <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
+    <?php
+        display_footer();
+    ?>
+    
 </body>
 </html>

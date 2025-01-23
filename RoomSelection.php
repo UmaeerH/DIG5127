@@ -2,6 +2,7 @@
 session_start();
 
 include "resources/database.php";
+include 'resources/html_construct.php';
 
 if ($conn === null) {
     die("Database connection not established.");
@@ -183,8 +184,9 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
         </div>
     </div>
 </div>
-<footer class="text-white text-center py-3 mt-5">
-    OpenBook &copy; 2025
-</footer>
+    <!-- Footer -->
+    <?php
+        display_footer();
+    ?>
 </body>
 </html>

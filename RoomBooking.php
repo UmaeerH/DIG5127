@@ -2,6 +2,7 @@
 session_start();
 
 include "resources/database.php";
+include 'resources/html_construct.php';
 
 if ($conn === null) {
     die("Database connection not established.");
@@ -121,15 +122,9 @@ $allTimeSlots = [
     </div>
 </div>
 
-<footer class="text-white text-center py-3 mt-5">
-    <div class="container">
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-            <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-            <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-        </ul>
-        <p class="mt-3">OpenBook&trade; LLC is a registered company in England & Wales under the Companies House.</p>
-    </div>
-</footer>
+<!-- Footer -->
+    <?php
+        display_footer();
+    ?>
 </body>
 </html>

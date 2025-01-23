@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "resources/html_construct.php";
 
 // Check if the logout action is triggered
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
@@ -41,7 +42,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
         <div class="container">
             <div class="d-flex justify-content-end">
                 <?php if (isset($_SESSION['username'])): ?>
-                    <a href="manageAccount.php" class="btn btn-link text-light px-3">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</a>
+                    <a href="ManageAccount.php" class="btn btn-link text-light px-3">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</a>
                     <a href="index.php?action=logout" class="btn btn-link text-light px-3">Log Out</a>
                 <?php else: ?>
                     <a href="SignUp.php" class="btn btn-link text-light px-3">Sign Up</a>
@@ -69,22 +70,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     </main>
 
     <!-- Footer -->
-    <footer class="footer text-center py-3 text-light">
-        <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-light">Home</a></li>
-                <li class="list-inline-item"><a href="BookRooms.php" class="text-light">Book Room</a></li>
-                <li class="list-inline-item"><a href="ManageBookings.php" class="text-light">Manage Bookings</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Help</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Careers</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="small mt-2">
-                OpenBook™ LLC is registered to operate in England & Wales under the Companies House.
-            </p>
-        </div>
-    </footer>
+    <?php
+        display_footer();
+    ?>
 
 </body>
 </html>

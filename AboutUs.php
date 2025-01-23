@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "resources/html_construct.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel="nofollow" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- External CSS -->
     <link rel="stylesheet" href="public_html/style/main.css">
     <!-- Javascript -->
@@ -213,66 +214,9 @@ session_start();
     </section>
 
     <!---- FOOTER ---->
-    <style>
-        .bg-dark-custom {
-            background-color: #4593A5;
-        }
-    </style>
-    <footer class="bg-dark-custom text-black py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h3>Get in Touch</h3>
-                    <form action="#" method="post" class="mt-3">
-                        <input type="text" name="EMAIL" class="form-control mb-2" placeholder="Email">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <h3>Other Pages</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="index.php" class="text-white">Home</a></li>
-                        <li><a href="BookRooms.php" class="text-white">Book Room</a></li>
-                        <li><a href="ManageBookings.php" class="text-white">Manage Bookings</a></li>
-                        <li><a href="AboutUs.php" class="text-white">About Us</a></li>
-                        <li><a href="ReportPage.php" class="text-white">Report</a></li>
-                    </ul>
-                </div>
-                <div class="col-7">
-                    <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <?php
+        display_footer();
+    ?>
 
-<!--
-<h1> About Us</h1>
-    <p>Welcome to the Birmingham City University Room Booking Platform! Our mission is to simplify room bookings and 
-        scheduling across all BCU buildings, ensuring a seamless and efficient experience for students, staff, and visitors.</p>
-
-    <p>Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
-        interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, 
-        and comprehensive building details, we make finding the perfect space effortless.</p>
-        
-    <p>We're here to support your academic and professional journey by providing a reliable and organized system 
-        that saves you time and keeps you focused on what matters most. Explore the platform today and discover 
-        how easy it is to book your next space at BCU!</p>
-    -->
-
- <!-- Footer -->
-  <!--
- <footer class="text-white text-center py-3 mt-5">
-        <div class="container">
-        <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.php" class="text-light">Home  |</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Contact Us  |</a></li>
-                <li class="list-inline-item"><a href="#" class="text-light">Legal</a></li>
-            </ul>
-            <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-        </div>
-    </footer>
 </body>
 </html>
--->

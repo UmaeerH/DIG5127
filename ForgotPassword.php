@@ -1,3 +1,8 @@
+<?php
+include 'resources/database.php';
+include 'resources/html_construct.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,3 +25,16 @@
 
     <title>Forgot Password </title>
 </head>
+
+<body>
+    <h2>WIP</h2>
+<!-- Fill rest of body here -->
+
+
+<!-- Footer -->
+    <?php
+        display_footer();
+    ?>
+    
+</body>
+</html>

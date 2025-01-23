@@ -1,5 +1,6 @@
 <?php
 require 'resources/database.php'; 
+include 'resources/html_construct.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // This Collects the form data
@@ -201,18 +202,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<footer class="text-light py-4" style="background-color: #008080;">
-    <div class="container text-center">
-        <p>&copy; 2025 OpenBook. All rights reserved.</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="index.php" class="text-light">Home</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="contact.php" class="text-light">Contact Us</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="legal.php" class="text-light">Legal</a></li>
-        </ul>
-    </div>
-</footer>
+<!-- Footer -->
+    <?php
+        display_footer();
+    ?>
 
 <script>
     const userTypeField = document.querySelector('[name="user_type"]');
