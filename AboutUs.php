@@ -57,6 +57,7 @@ session_start();
                     background-color: transparent;
                     border: 2px solid #fff;
                     color: #fff;
+                    font-size: 25px;
                 }
             </style>
             <a href="#" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
@@ -96,12 +97,12 @@ session_start();
 
 <!--Body-->
 <body>
-<div class="container py-5">
-        <div class="row" style="row-gap: 30px;">
+<div class="container" style="padding-bottom: 65px; padding-top: 70px;">
+        <div class="row" style="row-gap: 40px;">
             <div class="container text-center">
                 <h1 class="display-4">Our Buildings</h1>
             </div>
-        <h1 class="lead text-center"> Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
+        <h1 class="lead text-center" style="padding-bottom:20px;"> Whether you need a space for studying, meetings, or events, our platform provides an intuitive and user-friendly 
         interface to browse, reserve, and manage room bookings. With real-time availability, tailored search options, 
         and comprehensive building details, we make finding the perfect space effortless.</h1>
             <!-- Millenium Point -->
@@ -186,7 +187,7 @@ session_start();
         </div>
     </div>
 
-    <section class="bg-light py-5">
+    <section class="bg-light" style="padding: 65px;">
         <div class="container text-center">
             <h1>Require space for studying, meetings or events?</h1>
             <p>We're here to support your academic and professional journey by providing a reliable and organized system that saves you time and keeps you focused on what matters most. </p>
