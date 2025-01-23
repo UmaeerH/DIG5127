@@ -46,6 +46,7 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
     $softwareOptions .= "<option value='{$software['softwareID']}'>{$software['name']}</option>";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +57,13 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
     <script src="public_html/js/main.js"></script>
     <title>Room Selection</title>
 </head>
+
 <body>
+    <!--- Navbar --->
 <nav class="navbar navbar-expand-lg navbar-light bg-teal">
     <div class="container">
         <a class="navbar-brand" href="index.php">
-            <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo">
+            <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="index.php">Home</a>
@@ -74,6 +77,7 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
         </div>
     </div>
 </nav>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">
