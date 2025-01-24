@@ -1,79 +1,227 @@
 <?php
+include "resources/database.php";
 session_start();
+
+// Redirect to login page if not logged in
+if (!isset($_SESSION['userID'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Fetch user information using the user ID from the session
+$userID = $_SESSION['userID'];
+$sql = "SELECT u.userID, u.username, u.firstName, u.lastName, u.email, u.userType,
+        IFNULL(uu.university_name, 'None') AS university_name,
+        IFNULL(uu.faculty, 'None') AS faculty,
+        IFNULL(us.studentID, 'None') AS studentID,
+        IFNULL(us.course, 'None') AS course,
+        IFNULL(ust.department, 'None') AS department,
+        IFNULL(ex.company, 'None') AS company,
+        IFNULL(ex.role, 'None') AS role
+        FROM users u
+        LEFT JOIN universityusers uu ON u.userID = uu.user_id
+        LEFT JOIN universitystudents us ON u.userID = us.user_id
+        LEFT JOIN universitystaff ust ON u.userID = ust.user_id
+        LEFT JOIN externalusers ex ON u.userID = ex.user_id
+        WHERE u.userID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $userInfo = $result->fetch_assoc();
+} else {
+    echo "User not found.";
+    exit;
+}
+
+// Update user information
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_field'])) {
+    $field = $_POST['field'];
+    $newValue = $_POST['new_value'];
+
+    $sql = null;
+    switch ($field) {
+        case 'username':
+        case 'firstName':
+        case 'lastName':
+        case 'email':
+            $sql = "UPDATE users SET $field = ? WHERE userID = ?";
+            break;
+        case 'university_name':
+        case 'faculty':
+            $sql = "UPDATE universityusers SET $field = ? WHERE user_id = ?";
+            break;
+        case 'studentID':
+        case 'course':
+            $sql = "UPDATE universitystudents SET $field = ? WHERE user_id = ?";
+            break;
+        case 'department':
+            $sql = "UPDATE universitystaff SET $field = ? WHERE user_id = ?";
+            break;
+        case 'company':
+        case 'role':
+            $sql = "UPDATE externalusers SET $field = ? WHERE user_id = ?";
+            break;
+    }
+
+    if ($sql) {
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $newValue, $userID);
+        if ($stmt->execute()) {
+            if ($field === 'username') {
+                $_SESSION['username'] = $newValue;
+            }
+            $message = ucfirst($field) . " updated successfully.";
+            header("Refresh:0");
+        } else {
+            $message = "Error updating " . ucfirst($field) . ".";
+        }
+    } else {
+        $message = "Invalid field.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- LINKS
-         Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel="nofollow" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="public_html/style/main.css">
-    <!-- Javascript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="public_html/js/main.js"></script>
-    <title>About Us </title>
-</head>
-
-<!--- Navbar --->
-<nav class="navbar navbar-expand-lg navbar-light bg-teal">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
-            </a>
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="index.php">Home</a>
-                <a class="nav-item nav-link" href="BookRooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
-                <a class="nav-item nav-link" href="AboutUs.php">About Us</a>
-                <a class="nav-item nav-link" href="ReportPage.php">Report</a>
-                <?php if (isset($_SESSION['username'])): ?>
-                    <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>
-                <?php endif; ?>
-            </div>
-        </div>
-    </nav>
-
-     <!---- FOOTER ---->
-     <style>
+    <title>Manage Account</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
         .bg-dark-custom {
-            background-color: #4593A5;
+            background-color: #343a40;
         }
     </style>
-    <footer class="bg-dark-custom text-black py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h3>Get in Touch</h3>
-                    <form action="#" method="post" class="mt-3">
-                        <input type="text" name="EMAIL" class="form-control mb-2" placeholder="Email">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <h3>Other Pages</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="index.php" class="text-white">Home</a></li>
-                        <li><a href="BookRooms.php" class="text-white">Book Room</a></li>
-                        <li><a href="ManageBookings.php" class="text-white">Manage Bookings</a></li>
-                        <li><a href="AboutUs.php" class="text-white">About Us</a></li>
-                        <li><a href="ReportPage.php" class="text-white">Report</a></li>
-                    </ul>
-                </div>
-                <div class="col-7">
-                    <p class="mt-3">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-                </div>
-            </div>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <img src="public_html/images/OpenBook_LogoLight.png" alt="OpenBook Logo" style="height: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="BookRooms.php">Book Room</a></li>
+                <li class="nav-item"><a class="nav-link" href="ManageBookings.php">Manage Bookings</a></li>
+                <li class="nav-item"><a class="nav-link active" href="ManageAccount.php">Manage Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="AboutUs.php">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="ReportPage.php">Report</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="index.php?action=logout">Logout</a></li>
+            </ul>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+</nav>
+
+<!-- Account Details -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Your Account</h2>
+    <?php if (isset($message)): ?>
+        <div class="alert alert-info"><?php echo $message; ?></div>
+    <?php endif; ?>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title text-center">Account Details</h4>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Username</th>
+                    <td><?php echo htmlspecialchars($userInfo['username']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="editField('username')">Change</button></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><?php echo htmlspecialchars($userInfo['email']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="editField('email')">Change</button></td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td><?php echo htmlspecialchars($userInfo['firstName']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="editField('firstName')">Change</button></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td><?php echo htmlspecialchars($userInfo['lastName']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="editField('lastName')">Change</button></td>
+                </tr>
+                <tr>
+                    <th>User Type</th>
+                    <td><?php echo htmlspecialchars($userInfo['userType']); ?></td>
+                    <td></td>
+                </tr>
+                <!-- Additional fields based on user type -->
+                <?php if ($userInfo['userType'] === 'University'): ?>
+                    <tr>
+                        <th>University Name</th>
+                        <td><?php echo htmlspecialchars($userInfo['university_name']); ?></td>
+                        <td><button class="btn btn-primary btn-sm" onclick="editField('university_name')">Change</button></td>
+                    </tr>
+                    <tr>
+                        <th>Faculty</th>
+                        <td><?php echo htmlspecialchars($userInfo['faculty']); ?></td>
+                        <td><button class="btn btn-primary btn-sm" onclick="editField('faculty')">Change</button></td>
+                    </tr>
+                <?php elseif ($userInfo['userType'] === 'External'): ?>
+                    <tr>
+                        <th>Company</th>
+                        <td><?php echo htmlspecialchars($userInfo['company']); ?></td>
+                        <td><button class="btn btn-primary btn-sm" onclick="editField('company')">Change</button></td>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <td><?php echo htmlspecialchars($userInfo['role']); ?></td>
+                        <td><button class="btn btn-primary btn-sm" onclick="editField('role')">Change</button></td>
+                    </tr>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
+
+    <form method="POST" id="editForm" style="display:none;">
+        <div class="form-group mt-4">
+            <label for="new_value" id="editLabel"></label>
+            <input type="text" id="new_value" name="new_value" class="form-control" required>
+            <input type="hidden" id="field" name="field">
+        </div>
+        <button type="submit" name="update_field" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark-custom text-white py-4">
+    <div class="container text-center">
+        <p class="mb-0">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
+    </div>
+</footer>
+
+<script>
+    function editField(field) {
+        document.getElementById('editForm').style.display = 'block';
+        document.getElementById('field').value = field;
+        const labels = {
+            username: 'Enter new username:',
+            email: 'Enter new email:',
+            firstName: 'Enter new first name:',
+            lastName: 'Enter new last name:',
+            university_name: 'Enter new university name:',
+            faculty: 'Enter new faculty:',
+            company: 'Enter new company:',
+            role: 'Enter new role:'
+        };
+        document.getElementById('editLabel').innerText = labels[field];
+    }
+
+    function cancelEdit() {
+        document.getElementById('editForm').style.display = 'none';
+    }
+</script>
 </body>
+</html>
