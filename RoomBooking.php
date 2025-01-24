@@ -50,27 +50,36 @@ while ($row = $timeResult->fetch_assoc()) {
 
 // Define all time slots
 $allTimeSlots = [
-    "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00", "14:00 - 15:00", "15:00 - 16:00", "16:00 - 17:00"
+    "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00"
 ];
 
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";      // Debugging statements
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
         if ($action === 'book') {
             $timeSlot = $_POST['timeSlot'];
-            // Insert the booking into the database
-            $insertQuery = "INSERT INTO appointments (userID, roomID, date, timeSlot, paid, cancelled) VALUES (?, ?, ?, ?, 0, 0)";
-            $insertStmt = $conn->prepare($insertQuery);
-            $insertStmt->bind_param("iiss", $userID, $roomID, $selectedDate, $timeSlot);
-            if ($insertStmt->execute()) {
-                echo "<script>alert('Booking successful!'); window.location.href='ManageBookings.php';</script>";
+            // Check if the selected time slot is already booked
+            $checkQuery = "SELECT COUNT(*) as count FROM appointments WHERE roomID = ? AND date = ? AND timeSlot = ? AND cancelled = 0";
+            $checkStmt = $conn->prepare($checkQuery);
+            $checkStmt->bind_param("iss", $roomID, $selectedDate, $timeSlot);
+            $checkStmt->execute();
+            $checkResult = $checkStmt->get_result();
+            $checkRow = $checkResult->fetch_assoc();
+
+            if ($checkRow['count'] > 0) {
+                echo "<script>alert('This time slot is already booked. Please choose another one.');</script>";
             } else {
-                echo "<script>alert('Failed to book the room. Please try again later.');</script>";
+                // Insert the booking into the database
+                $insertQuery = "INSERT INTO appointments (userID, roomID, date, timeSlot, paid, cancelled) VALUES (?, ?, ?, ?, 0, 0)";
+                $insertStmt = $conn->prepare($insertQuery);
+                $insertStmt->bind_param("iiss", $userID, $roomID, $selectedDate, $timeSlot);
+                if ($insertStmt->execute()) {
+                    echo "<script>alert('Booking successful!'); window.location.href='ManageBookings.php';</script>";
+                } else {
+                    echo "<script>alert('Failed to book the room. Please try again later.');</script>";
+                }
             }
         }
     } else {
@@ -128,10 +137,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <ul class="list-group">
                 <?php foreach ($allTimeSlots as $timeSlot): ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span><?= $timeSlot ?></span>
+                        <span><?= formatTimeSlot($timeSlot) ?></span>
                         <?php if (in_array($timeSlot, $bookedSlots)): ?>
                             <span class="badge badge-danger">Session Booked</span>
-                            <button class="btn btn-secondary btn-sm" disabled>Session Booked</button>
+                            <button class="btn btn-secondary btn-sm" disabled>Slot Unavailable</button>
                         <?php else: ?>
                             <span class="badge badge-success">Session Available</span>
                             <form method="POST" action="">
