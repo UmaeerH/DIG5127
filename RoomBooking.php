@@ -14,6 +14,8 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
+$userID = $_SESSION['userID']; 
+
 // Get the selected room ID from POST or GET
 $roomID = $_POST['room_id'] ?? $_GET['room_id'] ?? null;
 if (!$roomID) {
@@ -34,9 +36,6 @@ if (!$roomDetails) {
     die("Invalid room ID.");
 }
 
-
-
-
 // Fetch available time slots for the selected date
 $selectedDate = $_SESSION['selected_date'] ?? date('Y-m-d');
 $timeSlotsQuery = "SELECT timeSlot FROM appointments WHERE roomID = ? AND date = ? AND cancelled = 0";
@@ -53,6 +52,33 @@ while ($row = $timeResult->fetch_assoc()) {
 $allTimeSlots = [
     "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00", "14:00 - 15:00", "15:00 - 16:00", "16:00 - 17:00"
 ];
+
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";      // Debugging statements
+    if (isset($_POST['action'])) {
+        $action = $_POST['action'];
+        if ($action === 'book') {
+            $timeSlot = $_POST['timeSlot'];
+            // Insert the booking into the database
+            $insertQuery = "INSERT INTO appointments (userID, roomID, date, timeSlot, paid, cancelled) VALUES (?, ?, ?, ?, 0, 0)";
+            $insertStmt = $conn->prepare($insertQuery);
+            $insertStmt->bind_param("iiss", $userID, $roomID, $selectedDate, $timeSlot);
+            if ($insertStmt->execute()) {
+                echo "<script>alert('Booking successful!'); window.location.href='ManageBookings.php';</script>";
+            } else {
+                echo "<script>alert('Failed to book the room. Please try again later.');</script>";
+            }
+        }
+    } else {
+        echo "Action not set.";
+    }
+} else {
+    echo "Form not submitted.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +95,7 @@ $allTimeSlots = [
 <nav class="navbar navbar-expand-lg navbar-light bg-teal">
     <div class="container">
         <a class="navbar-brand" href="index.php">
-            <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo">
+            <img class="OBLogo" src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo">
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="index.php">Home</a>
@@ -105,14 +131,14 @@ $allTimeSlots = [
                         <span><?= $timeSlot ?></span>
                         <?php if (in_array($timeSlot, $bookedSlots)): ?>
                             <span class="badge badge-danger">Session Booked</span>
-                            <button class="btn btn-secondary btn-sm" disabled>Book</button>
+                            <button class="btn btn-secondary btn-sm" disabled>Session Booked</button>
                         <?php else: ?>
                             <span class="badge badge-success">Session Available</span>
-                            <form method="POST" action="BookingConfirmation.php">
-                                <input type="hidden" name="roomID" value="<?= htmlspecialchars($roomID) ?>">
+                            <form method="POST" action="">
+                                <input type="hidden" name="room_id" value="<?= htmlspecialchars($roomID) ?>">
                                 <input type="hidden" name="timeSlot" value="<?= htmlspecialchars($timeSlot) ?>">
                                 <input type="hidden" name="selected_date" value="<?= htmlspecialchars($selectedDate) ?>">
-                                <button type="submit" class="btn btn-primary btn-sm">Book</button>
+                                <button type="submit" name="action" value="book" class="btn btn-primary btn-sm">Book</button>
                             </form>
                         <?php endif; ?>
                     </li>
