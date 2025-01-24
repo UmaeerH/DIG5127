@@ -307,4 +307,13 @@ class ExternalUser extends User {
     public function setRole($role) { $this->role = $role; }
 }
 
+
+// FUNCTIONS
+
+function formatTimeSlot($timeSlot) {
+    $startTime = DateTime::createFromFormat('H:i:s', $timeSlot);    // Take in XX:00:00
+    $endTime = clone $startTime;
+    $endTime->add(new DateInterval('PT1H')); // Add 1 hour to the start time
+    return $startTime->format('H:i') . ' - ' . $endTime->format('H:i'); // Format as "X : 00 - X+1 : 00"   ex; 13:00 - 14:00
+}
 ?>
