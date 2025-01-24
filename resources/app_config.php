@@ -3,7 +3,7 @@
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
-$db_name = "openbook";
+$db_name = "S22142153_S22137151_S22128321_S22143147";  // U, K, A, M
 
 try {
     $conn = new mysqli($db_server, $db_user, $db_pass, $db_name);

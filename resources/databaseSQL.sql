@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2025 at 04:01 PM
+-- Generation Time: Jan 24, 2025 at 04:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `openbook`
 --
-CREATE DATABASE IF NOT EXISTS `openbook` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `openbook`;
+CREATE DATABASE IF NOT EXISTS `S22142153_S22137151_S22128321_S22143147` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `S22142153_S22137151_S22128321_S22143147`;
 
 -- --------------------------------------------------------
 
@@ -680,7 +680,7 @@ ALTER TABLE `software`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
