@@ -19,22 +19,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header text-center py-4 ">
-        <img src="public_html/images/purple-circle-shape.png" alt="Left Decorative Circle" class="circle left-circle">
-        <img src="public_html/images/purple-circle-shape.png" alt="Right Decorative Circle" class="circle right-circle">
-
-        <div class="container">
-            <div class="d-flex justify-content-end">
-                <?php if (isset($_SESSION['username'])): ?>
-                    <a href="ManageAccount.php" class="btn btn-link text-light px-3">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</a>
-                    <a href="index.php?action=logout" class="btn btn-link text-light px-3">Log Out</a>
-                <?php else: ?>
-                    <a href="SignUp.php" class="btn btn-link text-light px-3">Sign Up</a>
-                    <a href="Login.php" class="btn btn-link text-light px-3">Log In</a>
-                <?php endif; ?>
-            </div>
-        </div>
+    <!-- Header / NAVBAR -->
+    <header>
+        <?php display_header(); ?>
     </header>
 
     <!-- Body -->

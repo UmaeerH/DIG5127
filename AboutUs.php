@@ -10,37 +10,18 @@ include "resources/html_construct.php";
     <title>About Us</title>
 </head>
 
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-teal">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
-            </a>
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="index.php">Home</a>
-                <a class="nav-item nav-link" href="BookRooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
-                <a class="nav-item nav-link active" href="AboutUs.php">About Us</a>
-                <a class="nav-item nav-link" href="ReportPage.php">Report</a>
-                <?php if (isset($_SESSION['username'])): ?>
-                    <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>
-                <?php endif; ?>
-            </div>
-        </div>
-    </nav>
-<!--Header-->
-
-<!--
-<body class="bg-light d-flex flex-column min-vh-100">
--->
+<!-- Header / NAVBAR -->
+<header>
+    <?php display_header(); ?>
+</header>
 
 <section class="au-hero text-white text-center">
-        <div class="container d-flex flex-column justify-content-center align-items-center h-100">
-            <h1 class="display-4">About Us</h1>
-            <p class="lead">Welcome to the Birmingham City University Room Booking Platform! <br> Our mission is to simplify room bookings and scheduling across all BCU buildings, ensuring a seamless <br> and efficient experience for students, staff, and visitors.</p>
-            <a href="SignUp.php" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
-        </div>
-    </section>
+    <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Welcome to the Birmingham City University Room Booking Platform! <br> Our mission is to simplify room bookings and scheduling across all BCU buildings, ensuring a seamless <br> and efficient experience for students, staff, and visitors.</p>
+        <a href="SignUp.php" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
+    </div>
+</section>
 
 <!--Body-->
 <body>

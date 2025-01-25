@@ -1,5 +1,6 @@
 <?php
 include "resources/database.php";
+include 'resources/html_construct.php';
 session_start();
 
 // Redirect to login page if not logged in

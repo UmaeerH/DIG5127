@@ -53,27 +53,10 @@ mysqli_close($conn);
 </head>
 
 <body>
-    <!-- Navbar (Header) -->
-    <header>
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container">
-                <a class="navbar-brand text-light" href="index.php">
-                    <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
-                </a>
-                <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="index.php">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- Header / NAVBAR -->
+<header>
+    <?php display_header(); ?>
+</header>
 
     <!-- Main Content -->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">

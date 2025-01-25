@@ -34,7 +34,7 @@
 }
 
 .navbar {
-    background-color: #4593A5;
+    background-color: #07010f;
     color: white;
 }
 
@@ -283,9 +283,6 @@ body {
     color: #555;
 }
 
-footer {
-    background-color: #4593A5;
-}
 
 footer div {
     font-size: 14px;
@@ -296,14 +293,6 @@ footer div {
 /* RoomSelection.php */
 
 /* Key Indicator Styling */
-.availability-key p {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 2rem;
-    font-size: 14px;
-    padding-top: 2rem;
-}
 
 
 .key-selected, .key-available, .key-booked {

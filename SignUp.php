@@ -101,9 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die('Error: ' . $stmt->error);
         }
     }
-
-    echo 'Registration successful!'; // TODO turn this into a pop-up
-                                     // TODO Header into function
+    
+    echo '<script>alert("Registration successful!")</script>';
+    // TODO Header into function
 }
 ?>
 
@@ -117,28 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Sign Up</title>
 </head>
 <body>
+<!-- Header / NAVBAR -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
-                <img src="public_html/images/OpenBook_LogoLight.png" alt="OpenBook Logo" class="HdrlogoLight" style="height: 80px; max-width: 100%; margin-right: 10px;">
-                <span class="d-none">OpenBook</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Login.php">Log in</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php display_header(); ?>
 </header>
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">

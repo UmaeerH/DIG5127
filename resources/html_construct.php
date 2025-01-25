@@ -46,7 +46,54 @@ function display_footer() {
     ';
 }
 
-
-
-
+function display_header() {
+    echo '
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
+                <img src="public_html/images/OpenBook_LogoLight.png" alt="OpenBook Logo" class="HdrlogoLight" style="height: 80px; max-width: 100%; margin-right: 10px;">
+                <span class="d-none">OpenBook</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li> ';
+                if (isset($_SESSION['username'])) { // If logged in
+                echo '
+                    <li class="nav-item">
+                        <a class="nav-link" href="BookRooms.php">Book Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ManageBookings.php">View my bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ManageAccount.php">Manage Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ReportPage.php">Report an Issue</a>
+                    </li>
+                ';
+            } else { // if logged out
+                echo '
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.php">Log in</a>
+                    </li>
+                ';
+                }
+            echo '
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.php">About Us</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    ';
+}
+    
 ?>

@@ -11,6 +11,20 @@ include 'resources/html_construct.php';
 </head>
 
 <body>
+<!-- Header / NAVBAR -->
+<header>
+    <?php display_header(); ?>
+</header>
+
+
+
+
+
+
+
+
+
+
     <h2>WIP</h2>
 <!-- Fill rest of body here -->
 

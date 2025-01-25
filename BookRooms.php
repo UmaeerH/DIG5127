@@ -11,26 +11,12 @@ include 'resources/html_construct.php';
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-teal">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <img src="public_html/images/OpenBook_Logo.png" alt="OpenBook Logo" class="OBLogo">
-            </a>
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="index.php">Home</a>
-                <a class="nav-item nav-link active" href="BookRooms.php">Book Room</a>
-                <a class="nav-item nav-link" href="ManageBookings.php">Manage Bookings</a>
-                <a class="nav-item nav-link" href="AboutUs.php">About Us</a>
-                <a class="nav-item nav-link" href="ReportPage.php">Report</a>
-                <?php if (isset($_SESSION['username'])): ?>
-                    <button onclick="window.location.href='index.php?action=logout'" class="btn btn-primary ml-3">Log Out</button>
-                <?php endif; ?>
-            </div>
-        </div>
-    </nav>
+<!-- Header / NAVBAR -->
+<header>
+    <?php display_header(); ?>
+</header>
 
-    <!-- Header -->
+    <!-- Video display -->
     <header class="header-br">
      <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
