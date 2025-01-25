@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 // Handle cancellation of bookings
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
     $appointmentID = $_POST['appointmentID'];
-    $sql = "DELETE FROM appointments WHERE appointmentID = ? AND userID = ?";
+    $sql = "UPDATE appointments SET cancelled = 1 WHERE appointmentID = ? AND userID = ?";      // Soft delete
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $appointmentID, $userID);
     $stmt->execute();
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
                     echo '<p class="card-text"><strong>Floor:</strong> ' . htmlspecialchars($row['floor']) . '</p>';
                     echo '<p class="card-text"><strong>Building:</strong> ' . htmlspecialchars($row['buildingName']) . '</p>';
                     echo '<p class="card-text"><strong>Date:</strong> ' . htmlspecialchars($row['date']) . '</p>';
-                    echo '<p class="card-text"><strong>Time:</strong> ' . htmlspecialchars($row['timeSlot']) . '</p>';
+                    echo '<p class="card-text"><strong>Time:</strong> ' . formatTimeSlot(htmlspecialchars($row['timeSlot'])) . '</p>';
                     echo '<form method="POST">';
                     echo '<input type="hidden" name="appointmentID" value="' . $row['appointmentID'] . '">';
                     echo '<button type="submit" name="cancel_booking" class="btn btn-danger btn-block">Cancel Booking</button>';

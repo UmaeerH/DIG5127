@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2025 at 04:57 AM
+-- Generation Time: Jan 25, 2025 at 01:47 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `openbook`
+-- Database: `s22142153_s22137151_s22128321_s22143147`
 --
-CREATE DATABASE IF NOT EXISTS `S22142153_S22137151_S22128321_S22143147` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `S22142153_S22137151_S22128321_S22143147`;
+CREATE DATABASE IF NOT EXISTS `s22142153_s22137151_s22128321_s22143147` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `s22142153_s22137151_s22128321_s22143147`;
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,17 @@ CREATE TABLE `appointments` (
   `paid` tinyint(1) NOT NULL,
   `cancelled` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`appointmentID`, `userID`, `roomID`, `date`, `timeSlot`, `paid`, `cancelled`) VALUES
+(1, 1, 13, '2024-01-25', '10:00:00', 0, 0),
+(3, 1, 13, '2024-01-25', '09:00:00', 0, 0),
+(4, 7, 13, '2024-01-25', '14:00:00', 0, 0),
+(6, 7, 1, '2025-01-25', '13:00:00', 0, 0),
+(8, 7, 1, '2025-01-25', '12:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -451,7 +462,8 @@ CREATE TABLE `universitystudents` (
 --
 
 INSERT INTO `universitystudents` (`user_id`, `studentID`, `course`) VALUES
-(1, 'S214246', 'Computer Science');
+(1, 'S214246', 'Computer Science'),
+(7, 'S5278525', 'CompSci');
 
 -- --------------------------------------------------------
 
@@ -471,7 +483,8 @@ CREATE TABLE `universityusers` (
 
 INSERT INTO `universityusers` (`user_id`, `university_name`, `faculty`) VALUES
 (1, 'Birmingham City University', 'CEBE'),
-(3, 'Birmingham City University', 'CEBE');
+(3, 'Birmingham City University', 'CEBE'),
+(7, 'MIT', 'CEBE');
 
 -- --------------------------------------------------------
 
@@ -495,10 +508,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `password`, `email`, `created_at`, `firstName`, `lastName`, `userType`) VALUES
-(1, 'user1', '$2y$10$wJ4nFFuC8AYmDvFuj4dCC.OiJHCUfFwvwj.wk9/TZCStm3PUJvNAq', 'test@mail.com', '2025-01-19 23:32:09', 'John', 'Doe', 'University'),
+(1, 'user1', '$2y$10$wJ4nFFuC8AYmDvFuj4dCC.OiJHCUfFwvwj.wk9/TZCStm3PUJvNAq', 'test@mail.com', '2025-01-19 23:32:09', 'John', 'Deer', 'University'),
 (3, 'JaneyBooking', '$2y$10$rdugXxAV6rqy8tPYU3HVk.yY0z9Iip4hMWgvnfapmzsUCf56ZPCZG', 'JDmail@gmail.com', '2025-01-22 00:47:16', 'Jane', 'Dane', 'University'),
 (4, 'businessUser', '$2y$10$e0moDCfp5Px9FfFXGGx6SuvWmmUu7qBzYHk7y3nRs3lvwCFmoH/p6', 'businessmail@business.com', '2025-01-22 00:47:50', 'Business', 'Man', 'External'),
-(5, 'unkn0wn', '$2y$10$0mF6yIoWQ/jG82lJ.9rcs.W.VdP2YYHhSVffWp9fH/3pcMaozLDgy', 'hackermail@proton.me', '2025-01-22 00:48:47', 'Elliot', 'Alderson', 'External');
+(5, 'unkn0wn', '$2y$10$0mF6yIoWQ/jG82lJ.9rcs.W.VdP2YYHhSVffWp9fH/3pcMaozLDgy', 'hackermail@proton.me', '2025-01-22 00:48:47', 'Elliot', 'Alderson', 'External'),
+(7, 'user2', '$2y$10$Pam0NK2xuH/EvLUk/fYhj.WZiAzD/JTNFJ0axSFJrgR9tI0jiQGxC', 'test2@gmail.com', '2025-01-24 14:01:41', 'test', 'subject', 'University');
 
 --
 -- Indexes for dumped tables
@@ -626,7 +640,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `board`
@@ -680,7 +694,7 @@ ALTER TABLE `software`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

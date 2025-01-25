@@ -82,8 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         }
-    } else {
-        echo "Action not set.";
     }
 } else {
     echo "Form not submitted.";
