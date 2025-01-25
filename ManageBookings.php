@@ -55,7 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
         <div class="row">
             <?php
             // Fetch the bookings for the logged-in user
-            $sql = "SELECT a.appointmentID, r.roomName, r.roomType, r.floor, r.building, r.roomImg, b.buildingName, a.date, a.timeSlot 
+            $sql = "SELECT a.appointmentID, r.roomID, r.roomName, r.roomType, 
+            r.floor, r.building, r.roomImg, b.buildingName, a.date, a.timeSlot 
                     FROM appointments a
                     JOIN rooms r ON a.roomID = r.roomID
                     JOIN buildings b ON r.building = b.buildingID
@@ -64,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
             $stmt->bind_param("i", $userID);
             $stmt->execute();
             $result = $stmt->get_result();
+
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -81,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
                     echo '<input type="hidden" name="appointmentID" value="' . $row['appointmentID'] . '">';
                     echo '<button type="submit" name="cancel_booking" class="btn btn-danger btn-block">Cancel Booking</button>';
                     echo '</form>';
+                    echo '<a href="ReportPage.php?roomID=' . $row['roomID'] . '" class="btn btn-warning btn-block mt-2">Report issue with room</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
