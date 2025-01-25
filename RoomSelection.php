@@ -36,11 +36,7 @@ function getComputerCount($conn, $roomID) {
     return $data['num_computers'] ?? 0;
 }
 
-function isRoomFavored($conn, $roomID, $userID) {
-    $query = "SELECT * FROM favourites WHERE userID = $userID AND roomID = $roomID";
-    $result = mysqli_query($conn, $query);
-    return mysqli_num_rows($result) > 0;
-}
+
 
 // Determine the building ID
 $buildingId = $_POST['building_id'] ?? $_GET['buildingID'] ?? null;
@@ -48,8 +44,8 @@ if (!$buildingId) {
     die("<p class='text-danger'>Building ID is missing. Please select a building to view rooms.</p>");
 }
 
-$buildingId = intval($buildingId);
-
+$buildingId = intval($buildingId);                                  // Collecting building ID
+$buildingName = getBuildingName($conn, $buildingId);    // Collecting building name
 
 
 // Fetching available software
@@ -64,12 +60,9 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public_html/style/main.css">
-    <script src="public_html/js/main.js"></script>
-    <title>Room Selection</title>
+    <?php HTMLHeadBoilerplate();  // Boilerplate 
+            echo "<title>" . htmlspecialchars($buildingName) . "</title>"; // Dynamic title
+    ?>
 </head>
 
 <body>

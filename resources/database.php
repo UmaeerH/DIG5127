@@ -316,4 +316,20 @@ function formatTimeSlot($timeSlot) {
     $endTime->add(new DateInterval('PT1H')); // Add 1 hour to the start time
     return $startTime->format('H:i') . ' - ' . $endTime->format('H:i'); // Format as "X : 00 - X+1 : 00"   ex; 13:00 - 14:00
 }
+
+function getBuildingName($conn, $buildingId) {
+    $sql = "SELECT buildingName FROM buildings WHERE buildingID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $buildingId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($row = $result->fetch_assoc()) {
+        return $row['buildingName'];
+    } else {
+        return "Unknown Building";  // Default value if building is not found
+    }
+}
+
+
 ?>

@@ -70,6 +70,9 @@ body {
     color: white;
 }
 
+.bg-dark-custom {
+    background-color: #343a40;
+}
 
 .body-content {
     flex-grow: 1; 
