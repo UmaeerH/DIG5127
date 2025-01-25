@@ -3,9 +3,16 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2025 at 01:47 AM
+-- Generation Time: Jan 25, 2025 at 08:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
+--
+-- Database: `s22142153_s22137151_s22128321_s22143147`
+-- S22142153 = Umaeer Hudah
+-- S22137151 = Kader Sangere
+-- S22128321 = Anisa Uddin
+-- S22143147 = Megan Binns
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `s22142153_s22137151_s22128321_s22143147`
 --
+
 CREATE DATABASE IF NOT EXISTS `s22142153_s22137151_s22128321_s22143147` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `s22142153_s22137151_s22128321_s22143147`;
 
@@ -60,7 +68,8 @@ INSERT INTO `appointments` (`appointmentID`, `userID`, `roomID`, `date`, `timeSl
 (3, 1, 13, '2024-01-25', '09:00:00', 0, 0),
 (4, 7, 13, '2024-01-25', '14:00:00', 0, 0),
 (6, 7, 1, '2025-01-25', '13:00:00', 0, 0),
-(8, 7, 1, '2025-01-25', '12:00:00', 0, 1);
+(8, 7, 1, '2025-01-25', '12:00:00', 0, 1),
+(9, 7, 9, '2025-01-25', '12:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -76,6 +85,14 @@ CREATE TABLE `board` (
   `width` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `board`
+--
+
+INSERT INTO `board` (`whiteboardID`, `equipmentID`, `smart`, `height`, `width`) VALUES
+(1, 66, 0, 24, 60),
+(2, 67, 1, 50, 100);
+
 -- --------------------------------------------------------
 
 --
@@ -87,7 +104,6 @@ CREATE TABLE `buildings` (
   `buildingName` varchar(255) NOT NULL,
   `buildingDesc` text DEFAULT NULL,
   `buildingImg` text DEFAULT NULL,
-  `numbOfRooms` int(11) DEFAULT NULL,
   `levels` int(11) NOT NULL,
   `helpline` varchar(255) DEFAULT NULL,
   `streetName` varchar(255) NOT NULL,
@@ -99,11 +115,11 @@ CREATE TABLE `buildings` (
 -- Dumping data for table `buildings`
 --
 
-INSERT INTO `buildings` (`buildingID`, `buildingName`, `buildingDesc`, `buildingImg`, `numbOfRooms`, `levels`, `helpline`, `streetName`, `city`, `postCode`) VALUES
-(1, 'Millenium Point', 'Located in the heart of the city centre, this lively and bright building would be a great choice for those looking for a private and quiet place to meet with their team.', 'public_html/images/mp-exterior.jpeg', NULL, 4, '012148578289', 'Millennium Point, Curzon St', 'Birmingham', 'B4 7AP'),
-(2, 'Parkside Building', 'The twin building of Millenium Point contains a lot of equipment for those studying or interested in the arts such as Music and painting.', 'public_html/images/parkside-gallery.jpeg', NULL, 4, '012148578289', 'Parkside, Cardigan St', 'Birmingham', 'B4 7RJ'),
-(3, 'Curzon Building', 'This lively and cozy building would be a great choice for those looking for a private and quiet place to meet with their team. With access to a great library and many in-building services.', 'public_html/images/curson-slider.jpeg', NULL, 4, '012148578289', 'Millennium Point, Curzon St', 'Birmingham', 'B4 7AP'),
-(4, 'Steam House', 'This cutting-edge building contains all the equipment a modern team would require to make the most out of their meetings.', 'public_html/images/steamhouse-exterior.jpeg', NULL, 4, '021489421738', 'Belmont Row', 'Birmingham', 'B4 7RQ');
+INSERT INTO `buildings` (`buildingID`, `buildingName`, `buildingDesc`, `buildingImg`, `levels`, `helpline`, `streetName`, `city`, `postCode`) VALUES
+(1, 'Millenium Point', 'Located in the heart of the city centre, this lively and bright building would be a great choice for those looking for a private and quiet place to meet with their team.', 'public_html/images/mp-exterior.jpeg', 4, '012148578289', 'Millennium Point, Curzon St', 'Birmingham', 'B4 7AP'),
+(2, 'Parkside Building', 'The twin building of Millenium Point contains a lot of equipment for those studying or interested in the arts such as Music and painting.', 'public_html/images/parkside-gallery.jpeg', 4, '012148578289', 'Parkside, Cardigan St', 'Birmingham', 'B4 7RJ'),
+(3, 'Curzon Building', 'This lively and cozy building would be a great choice for those looking for a private and quiet place to meet with their team. With access to a great library and many in-building services.', 'public_html/images/curson-slider.jpeg', 4, '012148578289', 'Millennium Point, Curzon St', 'Birmingham', 'B4 7AP'),
+(4, 'Steam House', 'This cutting-edge building contains all the equipment a modern team would require to make the most out of their meetings.', 'public_html/images/steamhouse-exterior.jpeg', 4, '021489421738', 'Belmont Row', 'Birmingham', 'B4 7RQ');
 
 -- --------------------------------------------------------
 
@@ -284,7 +300,9 @@ INSERT INTO `equipment` (`equipmentID`, `model`, `designatedRoom`, `status`) VAL
 (62, 'Sony Microphone 250', 7, 'Operational'),
 (63, 'Milab 2000', 14, 'Operational'),
 (64, 'Nevaton 800F', 18, 'Operational'),
-(65, 'Linux Laptop', 9, 'Operational');
+(65, 'Linux Laptop', 9, 'Operational'),
+(66, 'Generic Board', 14, 'Operational'),
+(67, 'GeniusBoard', 3, 'Operational');
 
 -- --------------------------------------------------------
 
@@ -309,18 +327,8 @@ CREATE TABLE `externalusers` (
 
 INSERT INTO `externalusers` (`user_id`, `paymentType`, `externalType`, `paymentToken`, `paymentIndentifier`, `paymentDate`, `company`, `role`) VALUES
 (4, NULL, 'Enterprise', NULL, NULL, NULL, 'Google', 'Software Engineer'),
-(5, NULL, 'Private', NULL, NULL, NULL, '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `favourites`
---
-
-CREATE TABLE `favourites` (
-  `userID` int(11) NOT NULL,
-  `roomID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+(5, NULL, 'Private', NULL, NULL, NULL, '', ''),
+(8, NULL, 'Enterprise', NULL, NULL, NULL, 'Oracle', 'Manager');
 
 -- --------------------------------------------------------
 
@@ -359,6 +367,16 @@ CREATE TABLE `reports` (
   `description` text DEFAULT NULL,
   `date_reported` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`reportID`, `RoomID`, `userID`, `problem_type`, `description`, `date_reported`) VALUES
+(1, 1, 7, 'IT', 'Bad pc', '2025-01-25'),
+(2, 9, 7, 'Electrical', 'Faulty socket', '2025-01-25'),
+(3, 9, 7, 'Electrical', 'Faulty socket', '2025-01-25'),
+(4, 13, 7, 'Other', 'I lost my phone', '2025-01-25');
 
 -- --------------------------------------------------------
 
@@ -512,7 +530,8 @@ INSERT INTO `users` (`userID`, `username`, `password`, `email`, `created_at`, `f
 (3, 'JaneyBooking', '$2y$10$rdugXxAV6rqy8tPYU3HVk.yY0z9Iip4hMWgvnfapmzsUCf56ZPCZG', 'JDmail@gmail.com', '2025-01-22 00:47:16', 'Jane', 'Dane', 'University'),
 (4, 'businessUser', '$2y$10$e0moDCfp5Px9FfFXGGx6SuvWmmUu7qBzYHk7y3nRs3lvwCFmoH/p6', 'businessmail@business.com', '2025-01-22 00:47:50', 'Business', 'Man', 'External'),
 (5, 'unkn0wn', '$2y$10$0mF6yIoWQ/jG82lJ.9rcs.W.VdP2YYHhSVffWp9fH/3pcMaozLDgy', 'hackermail@proton.me', '2025-01-22 00:48:47', 'Elliot', 'Alderson', 'External'),
-(7, 'user2', '$2y$10$Pam0NK2xuH/EvLUk/fYhj.WZiAzD/JTNFJ0axSFJrgR9tI0jiQGxC', 'test2@gmail.com', '2025-01-24 14:01:41', 'test', 'subject', 'University');
+(7, 'user2', '$2y$10$Pam0NK2xuH/EvLUk/fYhj.WZiAzD/JTNFJ0axSFJrgR9tI0jiQGxC', 'test2@gmail.com', '2025-01-24 14:01:41', 'test', 'subject', 'University'),
+(8, 'business123', '$2y$10$rISTYr1mZbc453h2Gd76XOzalDD7vVhcd/zk5NttoeoZBHsI3uk1e', '4124@maill.com', '2025-01-25 04:37:00', 'Business', 'person', 'External');
 
 --
 -- Indexes for dumped tables
@@ -571,13 +590,6 @@ ALTER TABLE `equipment`
 --
 ALTER TABLE `externalusers`
   ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `favourites`
---
-ALTER TABLE `favourites`
-  ADD PRIMARY KEY (`userID`,`roomID`),
-  ADD KEY `roomID` (`roomID`);
 
 --
 -- Indexes for table `microphone`
@@ -640,19 +652,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `board`
 --
 ALTER TABLE `board`
-  MODIFY `whiteboardID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `whiteboardID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `buildings`
 --
 ALTER TABLE `buildings`
-  MODIFY `buildingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `buildingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `computers`
@@ -664,7 +676,7 @@ ALTER TABLE `computers`
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `equipmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `equipmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `microphone`
@@ -676,7 +688,7 @@ ALTER TABLE `microphone`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rooms`
@@ -694,7 +706,7 @@ ALTER TABLE `software`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -743,13 +755,6 @@ ALTER TABLE `equipment`
 --
 ALTER TABLE `externalusers`
   ADD CONSTRAINT `externalusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
-
---
--- Constraints for table `favourites`
---
-ALTER TABLE `favourites`
-  ADD CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
-  ADD CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`roomID`) REFERENCES `rooms` (`roomID`);
 
 --
 -- Constraints for table `microphone`

@@ -134,15 +134,23 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
             }
 
             if (isset($_POST['microphone']) || isset($_POST['smartboard'])) {
-                $filters .= " AND (EXISTS (
-                    SELECT 1 FROM equipment e
-                    JOIN microphone m ON e.equipmentID = m.equipmentID
-                    WHERE e.designatedRoom = rooms.roomID AND e.status = 'Operational'
-                ) OR EXISTS (
-                    SELECT 1 FROM equipment e
-                    JOIN board b ON e.equipmentID = b.equipmentID
-                    WHERE e.designatedRoom = rooms.roomID AND b.smart = 1
-                ))";
+                $filters .= " AND (";
+                $conditions = [];
+                if (isset($_POST['microphone'])) {
+                    $conditions[] = "EXISTS (
+                        SELECT 1 FROM equipment e
+                        JOIN microphone m ON e.equipmentID = m.equipmentID
+                        WHERE e.designatedRoom = rooms.roomID AND e.status = 'Operational'
+                    )";
+                }
+                if (isset($_POST['smartboard'])) {
+                    $conditions[] = "EXISTS (
+                        SELECT 1 FROM equipment e
+                        JOIN board b ON e.equipmentID = b.equipmentID
+                        WHERE e.designatedRoom = rooms.roomID AND b.smart = 1
+                    )";
+                }
+                $filters .= implode(" OR ", $conditions) . ")";
             }
 
             if (!empty($_POST['room_type'])) {

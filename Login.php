@@ -75,9 +75,6 @@ mysqli_close($conn);
                     <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
                 </div>
                 <button type="submit" class="btn btn-dark btn-block">Log In</button>
-                <div class="text-center mt-3">
-                    <a href="#" class="text-muted">Forgot password?</a>
-                </div>
                 <div class="text-center mt-2">
                     <p>No Account? <a href="SignUp.php">Sign up now</a></p>
                 </div>

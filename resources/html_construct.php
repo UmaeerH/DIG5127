@@ -50,6 +50,9 @@ function display_header() {
                     <li class="nav-item">
                         <a class="nav-link" href="ReportPage.php">Report an Issue</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?action=logout">Sign Out</a>
+                    </li>
                 ';
             } else { // if logged out
                 echo '
