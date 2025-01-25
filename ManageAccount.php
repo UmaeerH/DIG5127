@@ -92,27 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_field'])) {
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
-    <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="public_html/images/OpenBook_LogoLight.png" alt="OpenBook Logo" style="height: 50px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="BookRooms.php">Book Room</a></li>
-                <li class="nav-item"><a class="nav-link" href="ManageBookings.php">Manage Bookings</a></li>
-                <li class="nav-item"><a class="nav-link active" href="ManageAccount.php">Manage Account</a></li>
-                <li class="nav-item"><a class="nav-link" href="AboutUs.php">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="ReportPage.php">Report</a></li>
-                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="index.php?action=logout">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php display_header(); ?>
 
 <!-- Account Details -->
 <div class="container mt-5">
@@ -189,12 +169,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_field'])) {
     </form>
 </div>
 
-<!-- Footer -->
-<footer class="bg-dark-custom text-white py-4">
-    <div class="container text-center">
-        <p class="mb-0">OpenBook™ LLC is a registered company in England & Wales under the Companies House.</p>
-    </div>
-</footer>
+<!---- FOOTER ---->
+<?php display_footer(); ?>
 
 <script>
     function editField(field) {

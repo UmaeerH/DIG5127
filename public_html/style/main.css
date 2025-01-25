@@ -5,6 +5,18 @@
     box-sizing: border-box;
 }
 
+/* FONT and Generic */
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
 /* Header */
 .header {
     background-color: #07010f;
@@ -24,7 +36,6 @@
     text-decoration: underline;
 }
 
-/* Nav Links */
 .nav-link.active {
     color: white ;
 }
@@ -65,14 +76,6 @@ body {
     overflow-x: hidden;
 }
 
-.bg-teal {
-    background-color: #4593A5;
-    color: white;
-}
-
-.bg-dark-custom {
-    background-color: #343a40;
-}
 
 .body-content {
     flex-grow: 1; 
@@ -107,27 +110,24 @@ body {
 }
 
 
-
 /* Circle Image Styles */
 .circle {
     position: absolute;
     width: clamp(200px, 20vw, 350px); 
     height: clamp(200px, 20vw, 350px);
     opacity: 0.8;
-    z-index: -2;
+    z-index: -5;
     pointer-events: none;
 }
 
 .left-circle {
     top: 120%; 
     left: -2%;
-    z-index: -5;
 }
 
 .right-circle {
-    bottom: -620%; 
+    top: 320%; 
     right: -2%;
-    z-index: -5;
 }
 
 
@@ -203,9 +203,6 @@ body {
     transform: scale(1.05);
 }
 
-
-
-
 /* BookRooms.php */
 
 .header-br {
@@ -215,9 +212,9 @@ body {
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
-  }
+}
   
-  .header-br video {
+.header-br video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -230,14 +227,14 @@ body {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-  }
+}
   
-  .header-br .container {
+.header-br .container {
     position: relative;
     z-index: 2;
-  }
+}
   
-  .header-br .overlay {
+.header-br .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -246,9 +243,9 @@ body {
     background-color: #0b1d45;
     opacity: 0.5;
     z-index: 1;
-  }
+}
   
-  @media (pointer: coarse) and (hover: none) {
+@media (pointer: coarse) and (hover: none) {
     .header-br {
       background: url(public_html/images/steamhouse-exterior) black no-repeat center center scroll;
     }
@@ -256,7 +253,7 @@ body {
     .header-br video {
       display: none;
     }
-  }
+}
 
 
 .container h2, .container h3 {
@@ -284,6 +281,7 @@ body {
 }
 
 
+
 footer div {
     font-size: 14px;
     color: #ccc;
@@ -292,30 +290,6 @@ footer div {
 
 /* RoomSelection.php */
 
-/* Key Indicator Styling */
-
-
-.key-selected, .key-available, .key-booked {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    border-radius: 3px;
-}
-
-.key-selected {
-    background-color: #28a745;
-    border: 2px solid #155d27;
-}
-
-.key-available {
-    background-color: #ffffff;
-    border: 2px solid #007bff;
-}
-
-.key-booked {
-    background-color: #dc3545;
-    border: 2px solid #a71d2a;
-}
 
 /* Calendar Container */
 .calendar-container {
@@ -396,7 +370,6 @@ footer div {
 
 
 /* RoomBooking */
-
 
 .card2 {
     border: none;
@@ -577,103 +550,16 @@ footer div {
     padding: 5px 10px;
     border-radius: 4px;
 }
-
-.manage-btn {
-    background-color: #6f42c1;
-}
-
-.manage-btn:hover {
-    background-color: #d0b8ff;
-}
-
-.cancel-btn {
-    background-color: #dc3545;
-}
-
-.cancel-btn:hover {
-    background-color: #ff0019;
-}
-
-.return-btn {
-    background-color: #0088ff;
-}
-
-.return-btn:hover {
-    background-color: #e600ff;
-}
+/* Buttons */
+.manage-btn { background-color: #6f42c1 }
+.manage-btn:hover { background-color: #d0b8ff }
+.cancel-btn { background-color: #dc3545 }
+.cancel-btn:hover { background-color: #ff0019 }
+.return-btn { background-color: #0088ff; }
+.return-btn:hover { background-color: #e600ff; }
 
 
-
-/*Sign up*/
-
-.dropdown {
-    position: relative;
-    margin: 2em 0;
-}
-
-.select {
-    background: #2a2f3b;
-    color: #fff;
-    padding: 1em;
-    border-radius: 0.5em;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s;
-}
-
-.select:hover {
-    background: #8c929e;
-}
-
-.caret {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
-    transition: transform 0.3s;
-}
-
-.caret-rotate {
-    transform: rotate(180deg);
-}
-
-.menu {
-    display: none;
-    background: #545a65;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-radius: 0.5em;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.menu li {
-    padding: 0.7em;
-    color: #9fa5b5;
-    cursor: pointer;
-}
-
-.menu li:hover {
-    background: #28292e;
-}
-
-.menu-open {
-    display: block;
-}
-
-.active {
-    background: #7a7b85;
-}
-
-/**Manage Bookings*/
+/*Manage Bookings*/
 
 nav ul {
     list-style-type: none;
@@ -732,25 +618,8 @@ main {
     margin: 5px 0;
 }
 
-.cancel-button, .return-button {
-    padding: 15x 15px;
-    background-color: #2775a8;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.cancel-button:hover, .return-button:hover {
-    background-color: #2775a8;
-}
 
 /* ABOUT US */
-
-h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-}
 
 .display-4 {
     font-size: 70px;
@@ -760,10 +629,6 @@ h1, h2, h3 {
     font-size: 20px;
 }
 
-p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
 
 /* Hero Section */
 .au-hero {
@@ -773,20 +638,6 @@ p {
     background-position: center;
     background-size: cover;
     position: relative;
-}
-
-/* Buttons */
-
-.au-btn-outline {
-    background-color: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.au-btn-outline:hover {
-    background-color: #fff;
-    color: #4593A5;
 }
 
 /* Cards */
@@ -867,7 +718,7 @@ p {
     background-color: #5a38a9; 
 }
 
-/* Body/Content */
+/* About us Body */
 
 .btn-outline-custom {
     background-color: transparent;
@@ -906,4 +757,3 @@ p {
 .display-4 {
     padding-bottom: 20px;
 }
-

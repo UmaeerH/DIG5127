@@ -19,8 +19,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 </head>
 
 <body>
-    <!-- Header / NAVBAR -->
-    <header>
+    <!-- Header -->
+    <header class="header text-center py-4 ">
+        <img src="public_html/images/purple-circle-shape.png" alt="Left Decorative Circle" class="circle left-circle">
+        <img src="public_html/images/purple-circle-shape.png" alt="Right Decorative Circle" class="circle right-circle">
+
         <?php display_header(); ?>
     </header>
 
