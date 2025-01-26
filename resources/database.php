@@ -331,5 +331,18 @@ function getBuildingName($conn, $buildingId) {
     }
 }
 
+function getBuildings() {
+    global $conn; // Use the existing database connection
+    $sql = "SELECT buildingImg, buildingName, buildingDesc FROM buildings";
+    $result = $conn->query($sql);
+
+    $buildings = [];
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $buildings[] = $row;
+        }
+    }
+    return $buildings;
+}
 
 ?>
