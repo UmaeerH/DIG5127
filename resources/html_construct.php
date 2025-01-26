@@ -48,9 +48,6 @@ function display_header() {
                         <a class="nav-link" href="ManageAccount.php">Manage Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ReportPage.php">Report an Issue</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="index.php?action=logout">Sign Out</a>
                     </li>
                 ';
