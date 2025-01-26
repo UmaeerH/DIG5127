@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['selected_date'])) {
         $_SESSION['selected_date'] = $_POST['selected_date'];
     } else {
-        $_SESSION['selected_date'] = date('d-m-y');
+        $_SESSION['selected_date'] = date('d-m-Y');
     }
     if (isset($_POST['selected_time'])) {
         $_SESSION['selected_time'] = $_POST['selected_time'];
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['selected_time'] = date('H:i:s');
     }
 } else{
-    $_SESSION['selected_date'] = date('d-m-y');
+    $_SESSION['selected_date'] = date('Y-m-d');
     $_SESSION['selected_time'] = date('H:i:s');
 }
 
@@ -77,8 +77,7 @@ while ($software = mysqli_fetch_assoc($softwareResult)) {
             <h5>Select Filters</h5>
             <form method="POST" action="RoomSelection.php">
                 <input type="hidden" name="building_id" value="<?php echo htmlspecialchars($buildingId); ?>">
-                <input type="date" name="selected_date" class="form-control" value="<?php echo $_SESSION['selected_date'] ?? 
-                date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="selected_date" class="form-control" value="<?php echo $_SESSION['selected_date'] ?? date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>">
                 <input type="number" name="min_seats" class="form-control mt-3" placeholder="Minimum Seats">
                 <input type="number" name="min_computers" class="form-control mt-3" placeholder="Minimum Computers">
                 <select name="software" class="form-control mt-3">
