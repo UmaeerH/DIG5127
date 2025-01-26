@@ -69,6 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $bookingDate = new DateTime($row['date']);
+                    $currentDate = new DateTime();
+                    $isPast = $bookingDate < $currentDate &&  // Check if date has passed
+                    $bookingDate->format('Y-m-d') !== $currentDate->format('Y-m-d'); // Exclude today from "Passed"
+
                     echo '<div class="col-md-4 mb-4">';
                     echo '<div class="card border-primary">';
                     echo '<img src="' . htmlspecialchars($row['roomImg']) . '" class="card-img-top" alt="Room Image">';
@@ -77,12 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_booking'])) {
                     echo '<p class="card-text"><strong>Type:</strong> ' . htmlspecialchars($row['roomType']) . '</p>';
                     echo '<p class="card-text"><strong>Floor:</strong> ' . htmlspecialchars($row['floor']) . '</p>';
                     echo '<p class="card-text"><strong>Building:</strong> ' . htmlspecialchars($row['buildingName']) . '</p>';
-                    echo '<p class="card-text"><strong>Date:</strong> ' . htmlspecialchars($row['date']) . '</p>';
+                    echo '<p class="card-text"><strong>Date:</strong> ' . htmlspecialchars($row['date']) . ($isPast ? ' (passed)' : '') . '</p>';
                     echo '<p class="card-text"><strong>Time:</strong> ' . formatTimeSlot(htmlspecialchars($row['timeSlot'])) . '</p>';
-                    echo '<form method="POST">';
-                    echo '<input type="hidden" name="appointmentID" value="' . $row['appointmentID'] . '">';
-                    echo '<button type="submit" name="cancel_booking" class="btn btn-danger btn-block">Cancel Booking</button>';
-                    echo '</form>';
+                    if (!$isPast) { // If the date has not passed yet
+                        echo '<form method="POST">';
+                        echo '<input type="hidden" name="appointmentID" value="' . $row['appointmentID'] . '">';
+                        echo '<button type="submit" name="cancel_booking" class="btn btn-danger btn-block">Cancel Booking</button>';
+                        echo '</form>';
+                    }
                     echo '<a href="ReportPage.php?roomID=' . $row['roomID'] . '" class="btn btn-warning btn-block mt-2">Report issue with room</a>';
                     echo '</div>';
                     echo '</div>';
