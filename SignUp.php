@@ -103,7 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     echo '<script>alert("Registration successful!")</script>';
-    // TODO Header into function
 }
 ?>
 
