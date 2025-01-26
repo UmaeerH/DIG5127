@@ -14,100 +14,101 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // This makes sure the 2 passwords match 
     if ($password !== $confirmPassword) {
-        die('Error: Passwords do not match.');
-    }
-
-    // Finds out what the userType category is
-    $userTypeCategory = '';
-    if ($userType === 'Student' || $userType === 'Staff') {
-        $userTypeCategory = 'University';
-    } elseif ($userType === 'Enterprise' || $userType === 'Private') {
-        $userTypeCategory = 'External';
+        echo '<script>alert("Error: Passwords do not match.")</script>';
     } else {
-        die('Error: Invalid user type.');
-    }
-
-    // Hash encrypts the password for security
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Inserts it into users table
-    $stmt = $conn->prepare("INSERT INTO users (username, password, email, firstName, lastName, userType) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ssssss', $username, $hashedPassword, $email, $firstName, $lastName, $userTypeCategory);
-
-    if (!$stmt->execute()) {
-        if ($stmt->errno === 1062) { // Duplicate detail error
-            die('Error: Email or username already exists.');
+        // Finds out what the userType category is
+        $userTypeCategory = '';
+        if ($userType === 'Student' || $userType === 'Staff') {
+            $userTypeCategory = 'University';
+        } elseif ($userType === 'Enterprise' || $userType === 'Private') {
+            $userTypeCategory = 'External';
         } else {
-            die('Error: ' . $stmt->error);
+            echo '<script>alert("Error: Invalid user type.")</script>';
+        }
+
+        // Hash encrypts the password for security
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // Inserts it into users table
+        $stmt = $conn->prepare("INSERT INTO users (username, password, email, firstName, lastName, userType) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssss', $username, $hashedPassword, $email, $firstName, $lastName, $userTypeCategory);
+
+        try {
+            if (!$stmt->execute()) {
+                throw new Exception($stmt->error, $stmt->errno);
+            }
+
+            $userId = $stmt->insert_id; 
+
+            // this handles userType-specific logics
+            if ($userType === 'Student') {
+                $universityName = $_POST['university_name'];
+                $faculty = $_POST['faculty'];
+                $studentId = $_POST['student_id'];
+                $course = $_POST['course'];
+
+                // Inserts data into universityusers
+                $stmt = $conn->prepare("INSERT INTO universityusers (user_id, university_name, faculty) VALUES (?, ?, ?)");
+                $stmt->bind_param('iss', $userId, $universityName, $faculty);
+                if (!$stmt->execute()) {
+                    throw new Exception($stmt->error, $stmt->errno);
+                }
+
+                // Inserts data into universitystudents
+                $stmt = $conn->prepare("INSERT INTO universitystudents (user_id, studentID, course) VALUES (?, ?, ?)");
+                $stmt->bind_param('iss', $userId, $studentId, $course);
+                if (!$stmt->execute()) {
+                    throw new Exception($stmt->error, $stmt->errno);
+                }
+
+            } elseif ($userType === 'Staff') {
+                $universityName = $_POST['university_name'];
+                $faculty = $_POST['faculty'];
+                $department = $_POST['department'];
+
+                // Inserts data into universityusers
+                $stmt = $conn->prepare("INSERT INTO universityusers (user_id, university_name, faculty) VALUES (?, ?, ?)");
+                $stmt->bind_param('iss', $userId, $universityName, $faculty);
+                if (!$stmt->execute()) {
+                    throw new Exception($stmt->error, $stmt->errno);
+                }
+
+                // Inserts data into universitystaff
+                $stmt = $conn->prepare("INSERT INTO universitystaff (user_id, department) VALUES (?, ?)");
+                $stmt->bind_param('is', $userId, $department);
+                if (!$stmt->execute()) {
+                    throw new Exception($stmt->error, $stmt->errno);
+                }
+
+            } elseif ($userType === 'Enterprise' || $userType === 'Private') {
+                $company = $_POST['company'] ?? '';
+                $role = $_POST['role'] ?? '';
+                $externalType = $userType;
+
+                // This Checks the required fields for enterprise users have been entered
+                if ($userType === 'Enterprise' && empty($company)) {
+                    echo '<script>alert("Error: Company name is required for enterprise users.")</script>';
+                }
+
+                // Inserts data into externalusers
+                $stmt = $conn->prepare("INSERT INTO externalusers (user_id, company, role, externalType) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param('isss', $userId, $company, $role, $externalType);
+                if (!$stmt->execute()) {
+                    throw new Exception($stmt->error, $stmt->errno);
+                }
+            }
+            
+            echo '<script>alert("Registration successful!")</script>';
+        } catch (Exception $e) {
+            if ($e->getCode() === 1062) { // Duplicate detail error
+                echo '<script>alert("Error: Email or username already exists.")</script>';
+            } else {
+                echo '<script>alert("Error: ' . $e->getMessage() . '")</script>';
+            }
         }
     }
-
-    $userId = $stmt->insert_id; 
-
-    // this handles userType-specific logics
-    if ($userType === 'Student') {
-        $universityName = $_POST['university_name'];
-        $faculty = $_POST['faculty'];
-        $studentId = $_POST['student_id'];
-        $course = $_POST['course'];
-
-        // Inserts data into universityusers
-        $stmt = $conn->prepare("INSERT INTO universityusers (user_id, university_name, faculty) VALUES (?, ?, ?)");
-        $stmt->bind_param('iss', $userId, $universityName, $faculty);
-        if (!$stmt->execute()) {
-            die('Error: ' . $stmt->error);
-        }
-
-        // Inserts data into universitystudents
-        $stmt = $conn->prepare("INSERT INTO universitystudents (user_id, studentID, course) VALUES (?, ?, ?)");
-        $stmt->bind_param('iss', $userId, $studentId, $course);
-        if (!$stmt->execute()) {
-            die('Error: ' . $stmt->error);
-        }
-
-    } elseif ($userType === 'Staff') {
-        $universityName = $_POST['university_name'];
-        $faculty = $_POST['faculty'];
-        $department = $_POST['department'];
-
-        // Inserts data into universityusers
-        $stmt = $conn->prepare("INSERT INTO universityusers (user_id, university_name, faculty) VALUES (?, ?, ?)");
-        $stmt->bind_param('iss', $userId, $universityName, $faculty);
-        if (!$stmt->execute()) {
-            die('Error: ' . $stmt->error);
-        }
-
-        // Inserts data into universitystaff
-        $stmt = $conn->prepare("INSERT INTO universitystaff (user_id, department) VALUES (?, ?)");
-        $stmt->bind_param('is', $userId, $department);
-        if (!$stmt->execute()) {
-            die('Error: ' . $stmt->error);
-        }
-
-    } elseif ($userType === 'Enterprise' || $userType === 'Private') {
-        $company = $_POST['company'] ?? '';
-        $role = $_POST['role'] ?? '';
-        $externalType = $userType;
-
-        // This Checks the required fields for enterprise users have been entered
-        if ($userType === 'Enterprise' && empty($company)) {
-            die('Error: Company name is required for enterprise users.');
-        }
-
-        // Inserts data into externalusers
-        $stmt = $conn->prepare("INSERT INTO externalusers (user_id, company, role, externalType) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param('isss', $userId, $company, $role, $externalType);
-        if (!$stmt->execute()) {
-            die('Error: ' . $stmt->error);
-        }
-    }
-    
-    echo '<script>alert("Registration successful!")</script>';
 }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -185,9 +186,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <!-- Footer -->
-    <?php
-        display_footer();
-    ?>
+<?php
+    display_footer();
+?>
 
 </body>
 </html>
