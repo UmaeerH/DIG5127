@@ -86,8 +86,9 @@ function display_footer() {
         echo '
                 <li class="list-inline-item"><a href="AboutUs.php" class="text-light">About us</a></li>
             </ul>
-            <p class="small mt-2 text-light">
-                OpenBook™ LLC is registered to operate in England & Wales under the Companies House.
+            <p class="mt-1 text-light"> OpenBook™ LLC is registered to operate in England & Wales under the Companies House. </p>
+            <p class="small text-light">
+                <a href="ourProject.php" class="text-light">Learn more about this project!</a>
             </p>
         </div>  
     </footer>

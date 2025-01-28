@@ -11,7 +11,7 @@ $buildings = getBuildings();
 <html lang="en">
 <head>
     <?php HTMLHeadBoilerplate(); ?>     <!-- boilerplate head -->
-    <title>About Us</title>
+    <title>About Our Client</title>
 </head>
 
 <!-- Header / NAVBAR -->
@@ -22,7 +22,10 @@ $buildings = getBuildings();
 <section class="au-hero text-white text-center">
     <div class="container d-flex flex-column justify-content-center align-items-center h-100">
         <h1 class="display-4">About Us</h1>
-        <p class="lead">Welcome to the Birmingham City University Room Booking Platform! <br> Our mission is to simplify room bookings and scheduling across all BCU buildings, ensuring a seamless <br> and efficient experience for students, staff, and visitors.</p>
+        <p class="lead">Welcome to the Birmingham City University Room Booking Platform! 
+        <br> This platform is designed to provide a seamless, user-friendly, 
+        <br> and efficient experience for all our students, staff, and visitors.</p>
+        <p> Powered by OpenBook </p>
         <a href="SignUp.php" class="btn btn-outline-custom btn-lg au-slow-hover">Sign up</a>
     </div>
 </section>
