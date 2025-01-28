@@ -3,15 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2025 at 08:07 PM
+-- Generation Time: Jan 28, 2025 at 07:07 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
---
--- Database: `s22142153_s22137151_s22128321_s22143147`
--- S22142153 = Umaeer Hudah
--- S22137151 = Kader Sangere
--- S22128321 = Anisa Uddin
--- S22143147 = Megan Binns
+
+
 
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,11 +21,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `s22142153_s22137151_s22128321_s22143147`
+-- Database: `openbook`
 --
 
-CREATE DATABASE IF NOT EXISTS `s22142153_s22137151_s22128321_s22143147` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `s22142153_s22137151_s22128321_s22143147`;
+CREATE DATABASE IF NOT EXISTS `openbook` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `openbook`;
 
 -- --------------------------------------------------------
 
@@ -786,6 +782,12 @@ ALTER TABLE `universitystudents`
 --
 ALTER TABLE `universityusers`
   ADD CONSTRAINT `universityusers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`building`) REFERENCES `buildings` (`buildingID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
