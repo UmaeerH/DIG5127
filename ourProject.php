@@ -23,7 +23,7 @@ include "resources/database.php";
 <body>
 <div class="container">
     <div class="container text-center">
-        <h1 class="display-4">Our Project</h1>
+        <h1 class="display-4 mt-4">Our Project</h1>
         <p class="lead"> 
             This university project was a part of a 2nd year module, exploring database 
             <br>and web application development
@@ -36,7 +36,7 @@ include "resources/database.php";
     <!-- Xampp Section -->
     <div class="row mb-4">
         <div class="col-md-12">
-            <h2 class="text-center"> XAMPP </h2>
+            <h2 class="mb-2 text-center"> XAMPP </h2>
         </div>
         <div class="col-md-6 mb-3">
             <div class="expandCard building-card h-100">
@@ -61,7 +61,7 @@ include "resources/database.php";
     <!-- Tools Section -->
     <div class="row mb-4">
         <div class="col-md-12">
-            <h2 class="text-center"> Tools </h2>
+            <h2 class="mb-2 text-center"> Tools </h2>
         </div>
         <div class="col-md-4 mb-3">
             <div class="expandCard building-card h-100">
@@ -95,7 +95,7 @@ include "resources/database.php";
     <!-- Technologies Section -->
     <div class="row mb-4">
         <div class="col-md-12">
-            <h2 class="text-center"> Technologies </h2>
+            <h2 class="mb-2 text-center"> Technologies </h2>
         </div>
         <div class="col-md-6 mb-3">
             <div class="expandCard building-card h-100">
